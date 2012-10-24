@@ -15,25 +15,56 @@ public final class R {
         public static final int titletextcolor=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_action_search=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int applebees=0x7f020000;
+        public static final int bargradient=0x7f020001;
+        public static final int benz=0x7f020002;
+        public static final int chilis=0x7f020003;
+        public static final int chipotle=0x7f020004;
+        public static final int ic_action_search=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int innout=0x7f020007;
+        public static final int jamba=0x7f020008;
+        public static final int jambamenu=0x7f020009;
+        public static final int lambo=0x7f02000a;
+        public static final int mcdonalds=0x7f02000b;
+        public static final int olivegarden=0x7f02000c;
+        public static final int outback=0x7f02000d;
+        public static final int peets=0x7f02000e;
+        public static final int pizzahut=0x7f02000f;
+        public static final int starbucks=0x7f020010;
     }
     public static final class id {
         public static final int bottom_menu=0x7f080001;
-        public static final int content=0x7f080003;
-        public static final int gift_button=0x7f080005;
-        public static final int headerbar=0x7f080008;
-        public static final int imglinear=0x7f080004;
-        public static final int menu_settings=0x7f080009;
-        public static final int people_button=0x7f080007;
-        public static final int separator=0x7f080006;
+        public static final int content=0x7f080016;
+        public static final int content_view_content=0x7f080005;
+        public static final int gift_button=0x7f080012;
+        public static final int headerbar=0x7f080015;
+        public static final int horizontalcontent=0x7f080006;
+        public static final int id_chilis=0x7f08000f;
+        public static final int id_chipotle=0x7f08000a;
+        public static final int id_innout=0x7f080009;
+        public static final int id_jamba=0x7f08000b;
+        public static final int id_mcdonalds=0x7f08000c;
+        public static final int id_olivegarden=0x7f080010;
+        public static final int id_outback=0x7f08000e;
+        public static final int id_peets=0x7f080008;
+        public static final int id_pizzahut=0x7f08000d;
+        public static final int id_starbucks=0x7f080007;
+        public static final int imglinear=0x7f080011;
+        public static final int mainjamba=0x7f080004;
+        public static final int menu_settings=0x7f080017;
+        public static final int people_button=0x7f080014;
+        public static final int scrollcontent=0x7f080003;
+        public static final int separator=0x7f080013;
         public static final int sub_content_view=0x7f080002;
         public static final int top_header=0x7f080000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int layout_footer_menu=0x7f030001;
-        public static final int layout_header=0x7f030002;
+        public static final int content_view=0x7f030001;
+        public static final int horz_scroll=0x7f030002;
+        public static final int layout_footer_menu=0x7f030003;
+        public static final int layout_header=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;

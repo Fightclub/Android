@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
 
-
+    <!-- HEADER -->
     <include android:id="@+id/top_header"
         android:layout_alignParentTop="true" layout="@layout/layout_header" />
-    
-    <!-- 
-    <LinearLayout android:id="@+id/top_header"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"         
-        android:orientation="vertical" android:layout_alignParentTop="true">
-        <include layout="@layout/layout_header" />
-    </LinearLayout>-->
+
 
     <!-- FOOTER -->
     <LinearLayout android:id="@+id/bottom_menu"
@@ -29,165 +24,55 @@
         android:layout_weight="1"
         android:id="@+id/sub_content_view"
         android:paddingBottom="5sp" android:background="#EAEAEA">
-        
-        <ScrollView
-            android:id="@+id/content"
+		    <ScrollView
+		        android:id="@+id/scrollcontent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout android:orientation="vertical"
-				        android:layout_width="fill_parent" android:layout_height="fill_parent"
-				        android:layout_below="@id/top_header" android:layout_above="@id/bottom_menu"
-				        android:layout_weight="1"
-				        android:paddingBottom="5sp" android:background="#EAEAEA">
-			          <HorizontalScrollView
-				            android:id="@+id/content"
-				            android:layout_width="wrap_content"
-				            android:layout_height="60dp">
-				            <TextView
-		                    android:layout_width="match_parent"
-		                    android:layout_height="wrap_content"
-		                    android:gravity="center"
-		                    android:textColor="#000000"
-		                    android:text="aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa "
-		                    android:textSize="50sp"/>
-				        </HorizontalScrollView>
-				        <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-                <HorizontalScrollView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:text="ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc "
-                        android:textSize="50sp"/>
-                </HorizontalScrollView>
-			      </LinearLayout>
-        </ScrollView>
+		        <LinearLayout android:orientation="vertical"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:paddingBottom="5sp"
+		            android:background="#EAEAEA">
+		            <ImageView
+		                android:id="@+id/mainjamba"
+				            android:layout_width="fill_parent"
+				            android:layout_height="wrap_content"
+				            android:paddingLeft="0dp"
+				            android:paddingRight="0dp"
+				            android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+				            android:scaleType="fitXY"
+				            android:src="@drawable/jambamenu"
+				            android:layout_gravity="center"
+				            android:layout_weight="1"/>
+		            <TextView
+								    android:layout_width="match_parent"
+								    android:layout_height="wrap_content"
+								    android:gravity="center"
+								    android:textColor="#000000"
+								    android:text="Category Name"
+								    android:textSize="20sp"/>
+		            
+				        <include layout="@layout/horz_scroll" />
+				        <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:text="Category Name"
+                    android:textSize="20sp"/>
+				        <include layout="@layout/horz_scroll" />
+				        <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:text="Category Name"
+                    android:textSize="20sp"/>
+				        <include layout="@layout/horz_scroll" />
+				        
+		        </LinearLayout>
+		    </ScrollView>
+	  </LinearLayout>
           
-
-            
-        
-    </LinearLayout>
 </RelativeLayout>

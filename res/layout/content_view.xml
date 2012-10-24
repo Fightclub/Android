@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
+
+    <!-- HEADER -->
+    <include android:id="@+id/top_header"
+        android:layout_alignParentTop="true" layout="@layout/layout_header" />
+
+
+    <!-- FOOTER -->
+    <LinearLayout android:id="@+id/bottom_menu"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"         
+        android:orientation="vertical" android:layout_alignParentBottom="true">
+        <!-- menu bar -->
+        <include layout="@layout/layout_footer_menu" />
+    </LinearLayout>
+
+    <!-- MAIN PART -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/top_header"
+        android:layout_above="@id/bottom_menu"
+        android:layout_weight="1"
+        android:id="@+id/content_view_content"
+        android:paddingBottom="5sp"
+		    android:gravity="center"
+		    android:textColor="#000000"
+		    android:text="CONTENT VIEW ACTIVITY!"
+		    android:textSize="20sp"/>
+          
+</RelativeLayout>
