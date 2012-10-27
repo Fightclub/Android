@@ -11,8 +11,13 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int black=0x7f040003;
+        public static final int gray=0x7f040004;
+        public static final int light_blue=0x7f040006;
+        public static final int lighter_blue=0x7f040005;
         public static final int titlebackgroundcolor=0x7f040000;
         public static final int titletextcolor=0x7f040001;
+        public static final int white=0x7f040002;
     }
     public static final class dimen {
         public static final int featured_horz_height=0x7f050002;
@@ -44,22 +49,23 @@ public final class R {
     }
     public static final class id {
         public static final int bottom_menu=0x7f090001;
-        public static final int brands_title=0x7f090007;
-        public static final int cart_button=0x7f090012;
+        public static final int brands_content=0x7f090007;
+        public static final int brands_title=0x7f090008;
+        public static final int cart_button=0x7f090013;
         public static final int category=0x7f090005;
-        public static final int content=0x7f090010;
-        public static final int content_view_content=0x7f090008;
+        public static final int content=0x7f090011;
+        public static final int content_view_content=0x7f090009;
         public static final int featured=0x7f090004;
-        public static final int gifts_button=0x7f09000e;
-        public static final int headerbar=0x7f09000f;
-        public static final int horizontalcontent=0x7f090009;
-        public static final int horz_scroll_linear=0x7f09000a;
-        public static final int imglinear=0x7f09000b;
-        public static final int menu_settings=0x7f090013;
-        public static final int people_button=0x7f09000c;
+        public static final int gifts_button=0x7f09000f;
+        public static final int headerbar=0x7f090010;
+        public static final int horizontalcontent=0x7f09000a;
+        public static final int horz_scroll_linear=0x7f09000b;
+        public static final int imglinear=0x7f09000c;
+        public static final int menu_settings=0x7f090014;
+        public static final int people_button=0x7f09000d;
         public static final int scrollcontent=0x7f090003;
-        public static final int search_button=0x7f090011;
-        public static final int separator=0x7f09000d;
+        public static final int search_button=0x7f090012;
+        public static final int separator=0x7f09000e;
         public static final int sub_content_view=0x7f090002;
         public static final int top_header=0x7f090000;
         public static final int vendor=0x7f090006;

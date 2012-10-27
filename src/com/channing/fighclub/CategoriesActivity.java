@@ -27,8 +27,8 @@ public class CategoriesActivity extends Activity {
 	private Context context;
 	private static final String TAG = "CategoriesActivity";
 	
-	public static final String NAME = "name";
-	
+	public static final String categoryUrl = HomeActivity.defaultUrl
+			+ "product/category?id=";
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,16 +38,67 @@ public class CategoriesActivity extends Activity {
         setContentView(R.layout.brands_view);
         setUpClickListensers();
         Intent thisIntent = getIntent();
-        String name = thisIntent.getStringExtra(NAME);
-        
+        String name = thisIntent.getStringExtra(HomeActivity.NAME);
+        String id = thisIntent.getStringExtra(HomeActivity.ID);
         TextView title = (TextView) findViewById(R.id.brands_title);
         title.setText(name);
+        loadContents(id);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
+    }
+    
+    
+    public void loadContents(String id) {
+    	
+    	String aOutput = HttpUtil.request(categoryUrl+id);
+        String productsString = 
+        		JsonUtil.handleJsonObject(aOutput, "products");
+        
+    	LinearLayout productsContent = 
+    			(LinearLayout) findViewById(R.id.brands_content);
+    	
+    	try {
+        	JSONArray categoryProducts = new JSONArray(productsString);
+        	for (int i=0; i < categoryProducts.length(); i++) {
+        		String url = JsonUtil.handleJsonObject
+        				(categoryProducts.getString(i), "icon");
+        		String name = JsonUtil.handleJsonObject
+        				(categoryProducts.getString(i), "name");
+        		TextView itemTitle = new TextView(this);
+        		itemTitle.setText(name);
+        		productsContent.addView(itemTitle);
+        		
+        		ImageView iv = new ImageView(this);
+            	iv.setImageResource(R.drawable.loading_small);
+            	int minDimen = Util.dpToPx(
+            			getString(R.dimen.horz_scroll_height),
+            			context);
+            	iv.setMinimumWidth(minDimen);
+            	iv.setMinimumHeight(minDimen);
+            	
+            	LinearLayout.LayoutParams lp = 
+            			new LinearLayout.LayoutParams(
+            					minDimen, 
+            					LinearLayout.LayoutParams.MATCH_PARENT);//w,h
+            	int m = Util.dpToPx(5, context);
+            	lp.setMargins(m, m, m, m);//left,top,right,bottom
+            	iv.setLayoutParams(lp);
+            	//iv.setBackgroundResource(R.layout.background);
+
+            	productsContent.addView(iv);
+            	UrlImageViewHelper.setUrlDrawable(iv, url, 
+            			R.drawable.loading_small);
+            	
+        	}
+            
+        } catch (JSONException e) {
+        	Log.v(TAG, "Json parsing error: " + e);
+        }
+        
     }
     
     

@@ -32,6 +32,9 @@ public class HomeActivity extends Activity {
 	public static final String featuredUrl = 
 		"http://fight-club-beta.herokuapp.com/catalog/a/product/category?id=2";
 	
+	public static final String NAME = "name";
+	public static final String ID = "id";
+	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,15 +92,18 @@ public class HomeActivity extends Activity {
     }
     
     
-    private void setImageClickListener(ImageView iv, String type, String name) {
+    private void setImageClickListener(ImageView iv, 
+    		String type, String name, String id) {
     	final String title = name;
+    	final String idx = id;
     	
     	if (type == getString(R.string.brands)) {
     		iv.setOnClickListener(new OnClickListener() {
             	public void onClick(View v) {
             		Intent intent = new Intent(context, 
             				BrandsActivity.class);
-            		intent.putExtra(BrandsActivity.NAME, title);
+            		intent.putExtra(NAME, title);
+            		intent.putExtra(ID, idx);
             		startActivity(intent);
             	}
             });
@@ -105,8 +111,9 @@ public class HomeActivity extends Activity {
     		iv.setOnClickListener(new OnClickListener() {
             	public void onClick(View v) {
             		Intent intent = new Intent(context, 
-            				BrandsActivity.class);
-            		intent.putExtra(CategoriesActivity.NAME, title);
+            				CategoriesActivity.class);
+            		intent.putExtra(NAME, title);
+            		intent.putExtra(ID, idx);
             		startActivity(intent);
             	}
     		});
@@ -206,7 +213,10 @@ public class HomeActivity extends Activity {
             	//iv.setBackgroundResource(R.layout.background);
             	String title = JsonUtil.handleJsonObject(
             			categoryProducts.getString(i), "name");
-            	setImageClickListener(iv, getString(R.string.categories), title);
+            	String id = JsonUtil.handleJsonObject(
+            			categoryProducts.getString(i), "id");
+            	setImageClickListener(iv, 
+            			getString(R.string.categories), title, id);
             	categoryHorzScroll.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
             			R.drawable.loading_small);
@@ -248,7 +258,10 @@ public class HomeActivity extends Activity {
             	iv.setLayoutParams(lp);
             	String title = JsonUtil.handleJsonObject(
             			vendorProducts.getString(i), "name");
-            	setImageClickListener(iv, getString(R.string.brands), title);
+            	String id = JsonUtil.handleJsonObject(
+            			vendorProducts.getString(i), "id");
+            	setImageClickListener(iv, 
+            			getString(R.string.brands), title, id);
             	//iv.setBackgroundResource(R.layout.background);
             	vendorHorzScroll.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
