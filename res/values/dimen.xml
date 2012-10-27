@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_height" >48dp</dimen>
+    <dimen name="footer_height" >48dp</dimen>
+    <dimen name="featured_horz_height" >200dp</dimen>
+    <dimen name="horz_scroll_height" >100dp</dimen>
+</resources>

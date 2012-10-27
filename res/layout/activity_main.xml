@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ffffff">
+    android:background="#ffffffff">
 
     <!-- HEADER -->
     <include android:id="@+id/top_header"
@@ -11,7 +11,7 @@
 
     <!-- FOOTER -->
     <LinearLayout android:id="@+id/bottom_menu"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"         
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
         android:orientation="vertical" android:layout_alignParentBottom="true">
         <!-- menu bar -->
         <include layout="@layout/layout_footer_menu" />
@@ -19,9 +19,10 @@
 
     <!-- MAIN PART -->
     <LinearLayout android:orientation="vertical"
-        android:layout_width="fill_parent" android:layout_height="fill_parent"
-        android:layout_below="@id/top_header" android:layout_above="@id/bottom_menu"
-        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/top_header"
+        android:layout_above="@id/bottom_menu"
         android:id="@+id/sub_content_view"
         android:paddingBottom="5sp" android:background="#EAEAEA">
 		    <ScrollView
@@ -33,43 +34,30 @@
 		            android:layout_height="wrap_content"
 		            android:paddingBottom="5sp"
 		            android:background="#EAEAEA">
-		            <ImageView
-		                android:id="@+id/mainjamba"
-				            android:layout_width="fill_parent"
-				            android:layout_height="wrap_content"
-				            android:paddingLeft="0dp"
-				            android:paddingRight="0dp"
-				            android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"
-				            android:scaleType="fitXY"
-				            android:src="@drawable/jambamenu"
-				            android:layout_gravity="center"
-				            android:layout_weight="1"/>
+		            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:text="@string/featured_products"
+                    android:textSize="20sp"/>
+                <include layout="@layout/featured_horz_scroll" android:id="@+id/featured"/>
 		            <TextView
 								    android:layout_width="match_parent"
 								    android:layout_height="wrap_content"
 								    android:gravity="center"
 								    android:textColor="#000000"
-								    android:text="Category Name"
+								    android:text="@string/categories"
 								    android:textSize="20sp"/>
-		            
-				        <include layout="@layout/horz_scroll" />
+				        <include layout="@layout/horz_scroll" android:id="@+id/category"/>
 				        <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="#000000"
-                    android:text="Category Name"
+                    android:text="@string/brands"
                     android:textSize="20sp"/>
-				        <include layout="@layout/horz_scroll" />
-				        <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="#000000"
-                    android:text="Category Name"
-                    android:textSize="20sp"/>
-				        <include layout="@layout/horz_scroll" />
+				        <include layout="@layout/horz_scroll" android:id="@+id/vendor"/>
 				        
 		        </LinearLayout>
 		    </ScrollView>

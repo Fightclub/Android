@@ -4,15 +4,16 @@
   android:orientation="horizontal"
   android:layout_width="fill_parent"
   android:background="@drawable/bargradient"
-  android:layout_height="48dp"
+  android:layout_height="@dimen/header_height"
   android:layout_below="@+id/content"
   android:layout_alignParentTop="true"
   >
   <ImageView
+      android:id = "@+id/search_button"
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
-      android:src="@drawable/ic_launcher"
-      android:gravity="right"
+      android:src="@drawable/ic_action_search"
+      android:gravity="left"
       android:layout_weight="1"/>
   <TextView 
       android:layout_width="wrap_content"
@@ -20,13 +21,16 @@
       android:textColor="#ff000000"
       android:textSize="30sp"
       android:gravity="center"
-      android:text="MY TITLE BAR"
+      android:text="@string/app_name"
       android:layout_weight="3"/>
       
   <ImageView
-      android:layout_width="wrap_content"
+      android:id = "@+id/cart_button"
+      android:layout_width="@dimen/header_height"
       android:layout_height="match_parent"
-      android:gravity="left"
-      android:src="@drawable/ic_action_search"
+      android:gravity="right"
+      android:scaleType="fitEnd"
+      android:paddingRight = "5dp"
+      android:src="@drawable/shopping_cart"
       android:layout_weight="1"/>
 </LinearLayout>

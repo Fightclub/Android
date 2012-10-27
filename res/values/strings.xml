@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">Fightclub</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
@@ -7,5 +6,10 @@
     <string name="gifts">Gifts</string>
     <string name="people">People</string>
     <string name="temp">temp</string>
-
+    <string name="cart">Cart</string>
+    <string name="search">Search</string>
+    <string name="featured_products">Featured Products</string>
+    <string name="categories">Categories</string>
+    <string name="vendors">Vendors</string>
+    <string name="brands">Brands</string>
 </resources>

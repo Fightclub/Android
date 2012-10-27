@@ -26,8 +26,16 @@
         </activity>
         <activity
             android:name="com.channing.fighclub.BaseActivity"
-            android:label="content activity label" >
+            android:label="base activity label" >
+        </activity>
+        <activity
+            android:name="com.channing.fighclub.BrandsActivity"
+            android:label="brands activity label" >
+        </activity>
+        <activity
+            android:name="com.channing.fighclub.CategoriesActivity"
+            android:label="categories activity label" >
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>

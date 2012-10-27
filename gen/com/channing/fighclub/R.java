@@ -14,6 +14,12 @@ public final class R {
         public static final int titlebackgroundcolor=0x7f040000;
         public static final int titletextcolor=0x7f040001;
     }
+    public static final class dimen {
+        public static final int featured_horz_height=0x7f050002;
+        public static final int footer_height=0x7f050001;
+        public static final int header_height=0x7f050000;
+        public static final int horz_scroll_height=0x7f050003;
+    }
     public static final class drawable {
         public static final int applebees=0x7f020000;
         public static final int bargradient=0x7f020001;
@@ -26,59 +32,68 @@ public final class R {
         public static final int jamba=0x7f020008;
         public static final int jambamenu=0x7f020009;
         public static final int lambo=0x7f02000a;
-        public static final int mcdonalds=0x7f02000b;
-        public static final int olivegarden=0x7f02000c;
-        public static final int outback=0x7f02000d;
-        public static final int peets=0x7f02000e;
-        public static final int pizzahut=0x7f02000f;
-        public static final int starbucks=0x7f020010;
+        public static final int loading=0x7f02000b;
+        public static final int loading_small=0x7f02000c;
+        public static final int mcdonalds=0x7f02000d;
+        public static final int olivegarden=0x7f02000e;
+        public static final int outback=0x7f02000f;
+        public static final int peets=0x7f020010;
+        public static final int pizzahut=0x7f020011;
+        public static final int shopping_cart=0x7f020012;
+        public static final int starbucks=0x7f020013;
     }
     public static final class id {
-        public static final int bottom_menu=0x7f080001;
-        public static final int content=0x7f080016;
-        public static final int content_view_content=0x7f080005;
-        public static final int gift_button=0x7f080012;
-        public static final int headerbar=0x7f080015;
-        public static final int horizontalcontent=0x7f080006;
-        public static final int id_chilis=0x7f08000f;
-        public static final int id_chipotle=0x7f08000a;
-        public static final int id_innout=0x7f080009;
-        public static final int id_jamba=0x7f08000b;
-        public static final int id_mcdonalds=0x7f08000c;
-        public static final int id_olivegarden=0x7f080010;
-        public static final int id_outback=0x7f08000e;
-        public static final int id_peets=0x7f080008;
-        public static final int id_pizzahut=0x7f08000d;
-        public static final int id_starbucks=0x7f080007;
-        public static final int imglinear=0x7f080011;
-        public static final int mainjamba=0x7f080004;
-        public static final int menu_settings=0x7f080017;
-        public static final int people_button=0x7f080014;
-        public static final int scrollcontent=0x7f080003;
-        public static final int separator=0x7f080013;
-        public static final int sub_content_view=0x7f080002;
-        public static final int top_header=0x7f080000;
+        public static final int bottom_menu=0x7f090001;
+        public static final int brands_title=0x7f090007;
+        public static final int cart_button=0x7f090012;
+        public static final int category=0x7f090005;
+        public static final int content=0x7f090010;
+        public static final int content_view_content=0x7f090008;
+        public static final int featured=0x7f090004;
+        public static final int gifts_button=0x7f09000e;
+        public static final int headerbar=0x7f09000f;
+        public static final int horizontalcontent=0x7f090009;
+        public static final int horz_scroll_linear=0x7f09000a;
+        public static final int imglinear=0x7f09000b;
+        public static final int menu_settings=0x7f090013;
+        public static final int people_button=0x7f09000c;
+        public static final int scrollcontent=0x7f090003;
+        public static final int search_button=0x7f090011;
+        public static final int separator=0x7f09000d;
+        public static final int sub_content_view=0x7f090002;
+        public static final int top_header=0x7f090000;
+        public static final int vendor=0x7f090006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int content_view=0x7f030001;
-        public static final int horz_scroll=0x7f030002;
-        public static final int layout_footer_menu=0x7f030003;
-        public static final int layout_header=0x7f030004;
+        public static final int background=0x7f030001;
+        public static final int brands_view=0x7f030002;
+        public static final int categories_view=0x7f030003;
+        public static final int content_view=0x7f030004;
+        public static final int featured_horz_scroll=0x7f030005;
+        public static final int horz_scroll=0x7f030006;
+        public static final int layout_footer_menu=0x7f030007;
+        public static final int layout_header=0x7f030008;
     }
     public static final class menu {
-        public static final int activity_main=0x7f070000;
+        public static final int activity_main=0x7f080000;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int gifts=0x7f050004;
-        public static final int hello_world=0x7f050001;
-        public static final int menu_settings=0x7f050002;
-        public static final int people=0x7f050005;
-        public static final int temp=0x7f050006;
-        public static final int title_activity_main=0x7f050003;
+        public static final int app_name=0x7f060000;
+        public static final int brands=0x7f06000c;
+        public static final int cart=0x7f060007;
+        public static final int categories=0x7f06000a;
+        public static final int featured_products=0x7f060009;
+        public static final int gifts=0x7f060004;
+        public static final int hello_world=0x7f060001;
+        public static final int menu_settings=0x7f060002;
+        public static final int people=0x7f060005;
+        public static final int search=0x7f060008;
+        public static final int temp=0x7f060006;
+        public static final int title_activity_main=0x7f060003;
+        public static final int vendors=0x7f06000b;
     }
     public static final class style {
-        public static final int AppTheme=0x7f060000;
+        public static final int AppTheme=0x7f070000;
     }
 }

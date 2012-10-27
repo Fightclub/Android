@@ -1,0 +1,14 @@
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/horizontalcontent"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/featured_horz_height"
+    android:scrollbars="none">
+    <LinearLayout
+        android:id = "@+id/horz_scroll_linear"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+</HorizontalScrollView>

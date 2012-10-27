@@ -2,100 +2,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/horizontalcontent"
     android:layout_width="wrap_content"
-    android:layout_height="100dp"
+    android:layout_height="@dimen/horz_scroll_height"
     android:scrollbars="none">
-    <LinearLayout android:orientation="horizontal"
+    <LinearLayout
+        android:id = "@+id/horz_scroll_linear"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/id_starbucks"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/starbucks"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_peets"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/peets"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_innout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/innout"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_chipotle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/chipotle"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_jamba"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/jamba"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_mcdonalds"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/mcdonalds"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_pizzahut"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/pizzahut"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_outback"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/outback"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_chilis"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/chilis"
-            android:gravity="right"
-            android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/id_olivegarden"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/olivegarden"
-            android:gravity="right"
-            android:layout_weight="1"/>
+
     </LinearLayout>
 </HorizontalScrollView>

@@ -22,7 +22,7 @@ public class BaseActivity extends Activity {
         context = getApplicationContext();
         setContentView(R.layout.activity_main);
         
-        Button giftButton = (Button) findViewById(R.id.gift_button);
+        Button giftButton = (Button) findViewById(R.id.gifts_button);
         Button peopleButton = (Button) findViewById(R.id.people_button);
         
         giftButton.setOnClickListener(new OnClickListener() {
