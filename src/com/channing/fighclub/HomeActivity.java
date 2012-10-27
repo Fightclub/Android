@@ -11,15 +11,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.faceapp.SampleFaceAppActivity;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 public class HomeActivity extends Activity {
@@ -71,8 +69,13 @@ public class HomeActivity extends Activity {
         
         peopleButton.setOnClickListener(new OnClickListener() {
         	public void onClick(View v) {
-        		Toast.makeText(getApplicationContext(),
-        				getString(R.string.people), 1000).show();
+        		//Toast.makeText(getApplicationContext(),
+        		//		getString(R.string.people), 1000).show();
+        		
+        		Intent intent = new Intent(context, 
+        				SampleFaceAppActivity.class);
+        		startActivity(intent);
+        		
         	}
         });
         

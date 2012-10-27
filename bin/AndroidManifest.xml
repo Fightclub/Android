@@ -36,6 +36,14 @@
             android:name="com.channing.fighclub.CategoriesActivity"
             android:label="categories activity label" >
         </activity>
+        <activity
+            android:name="com.channing.fighclub.PeopleActivity"
+            android:label="people activity label" >
+        </activity>
+        <activity
+            android:name="com.faceapp.SampleFaceAppActivity"
+            android:label="sample faceapp activity label" >
+        </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>

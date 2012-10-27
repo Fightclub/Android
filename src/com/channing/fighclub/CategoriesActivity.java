@@ -35,12 +35,12 @@ public class CategoriesActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         context = getApplicationContext();
-        setContentView(R.layout.brands_view);
+        setContentView(R.layout.categories_view);
         setUpClickListensers();
         Intent thisIntent = getIntent();
         String name = thisIntent.getStringExtra(HomeActivity.NAME);
         String id = thisIntent.getStringExtra(HomeActivity.ID);
-        TextView title = (TextView) findViewById(R.id.brands_title);
+        TextView title = (TextView) findViewById(R.id.categories_title);
         title.setText(name);
         loadContents(id);
     }
@@ -59,7 +59,7 @@ public class CategoriesActivity extends Activity {
         		JsonUtil.handleJsonObject(aOutput, "products");
         
     	LinearLayout productsContent = 
-    			(LinearLayout) findViewById(R.id.brands_content);
+    			(LinearLayout) findViewById(R.id.categories_content);
     	
     	try {
         	JSONArray categoryProducts = new JSONArray(productsString);
