@@ -68,6 +68,8 @@ public class BrandsActivity extends Activity {
         				(brandProducts.getString(i), "icon");
         		String name = JsonUtil.handleJsonObject
         				(brandProducts.getString(i), "name");
+        		String itemId = JsonUtil.handleJsonObject
+        				(brandProducts.getString(i), "id");
         		TextView itemTitle = new TextView(this);
         		itemTitle.setText(name);
         		productsContent.addView(itemTitle);

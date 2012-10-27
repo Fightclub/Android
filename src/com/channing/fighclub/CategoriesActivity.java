@@ -68,6 +68,17 @@ public class CategoriesActivity extends Activity {
         				(categoryProducts.getString(i), "icon");
         		String name = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "name");
+        		String itemId = JsonUtil.handleJsonObject
+        				(categoryProducts.getString(i), "id");
+        		String vendor = JsonUtil.handleJsonObject
+        				(categoryProducts.getString(i), "vendor");
+        		String vendorName = JsonUtil.handleJsonObject
+        				(vendor, "name");
+        		
+        		TextView itemVendor = new TextView(this);
+        		itemVendor.setText(vendorName);
+        		productsContent.addView(itemVendor);
+        		
         		TextView itemTitle = new TextView(this);
         		itemTitle.setText(name);
         		productsContent.addView(itemTitle);
