@@ -8,7 +8,7 @@
         android:targetSdkVersion="8" />
 
     <application
-        android:icon="@drawable/lambo"
+        android:icon="@drawable/givair_logo"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
