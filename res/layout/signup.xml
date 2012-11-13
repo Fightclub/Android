@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <!-- HEADER -->
+
+    <include
+        android:id="@+id/top_header"
+        android:layout_alignParentTop="true"
+        layout="@layout/layout_header" />
+
+    <!-- FOOTER -->
+
+    <LinearLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <!-- menu bar -->
+
+        <include layout="@layout/layout_footer_menu" />
+    </LinearLayout>
+
+    <!-- MAIN PART -->
+
+    <LinearLayout
+        android:id="@+id/sub_content_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/bottom_menu"
+        android:layout_below="@id/top_header"
+        android:background="#EAEAEA"
+        android:orientation="vertical"
+        android:paddingBottom="5sp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Featured"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/featured_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EAEAEA"
+            android:orientation="horizontal"
+            android:paddingBottom="5sp" >
+
+            <ImageView
+                android:id="@+id/featured_product_image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignRight="@+id/please_show"
+                android:layout_alignTop="@+id/suggested"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:paddingRight="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/starbucks" />
+
+            <TextView
+                android:id="@+id/featured_signup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:gravity="right|center"
+                android:text="sign up image"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Personal"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/featured_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottom_menu"
+            android:layout_below="@id/top_header"
+            android:background="#EAEAEA"
+            android:orientation="horizontal"
+            android:paddingBottom="5sp" >
+
+            <ImageView
+                android:id="@+id/featured_product_image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignRight="@+id/please_show"
+                android:layout_alignTop="@+id/suggested"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:paddingRight="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/starbucks" />
+
+            <TextView
+                android:id="@+id/featured_signup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:gravity="right|center"
+                android:text="sign up image"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Professional"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/featured_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottom_menu"
+            android:layout_below="@id/top_header"
+            android:background="#EAEAEA"
+            android:orientation="horizontal"
+            android:paddingBottom="5sp" >
+
+            <ImageView
+                android:id="@+id/featured_product_image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignRight="@+id/please_show"
+                android:layout_alignTop="@+id/suggested"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:paddingRight="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/starbucks" />
+
+            <TextView
+                android:id="@+id/featured_signup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:gravity="right|center"
+                android:text="sign up image"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

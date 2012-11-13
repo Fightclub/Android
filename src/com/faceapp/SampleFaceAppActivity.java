@@ -12,13 +12,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.channing.fighclub.HomeActivity;
 import com.channing.fighclub.R;
 import com.facebook.android.DialogError;
 import com.facebook.android.Facebook;
@@ -32,9 +33,10 @@ public class SampleFaceAppActivity extends Activity {
 
 
 	TextView nameText;
-	Button connectBtn;
+	ImageView connectBtn;
 	FeedListView feedList;
 	FeedListAdapter feedAdapter;
+	Context context;
 
 	Button writeBtn;
 	EditText writeInput;
@@ -42,9 +44,11 @@ public class SampleFaceAppActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        context = getApplicationContext();
+        setContentView(R.layout.people_view);
+        setUpClickListensers();
 
-        connectBtn = (Button) findViewById(R.id.connectBtn);
+        connectBtn = (ImageView) findViewById(R.id.connectBtn);
         connectBtn.setOnClickListener(new OnClickListener() {
         	public void onClick(View v) {
         		connect();
@@ -245,6 +249,49 @@ public class SampleFaceAppActivity extends Activity {
 		}
 
 	}
+	
+	
+    private void setUpClickListensers() {
+    	Button giftButton = (Button) findViewById(R.id.gifts_button);
+        Button peopleButton = (Button) findViewById(R.id.people_button);
+        ImageView searchButton = (ImageView) findViewById(R.id.search_button);
+        ImageView cartButton = (ImageView) findViewById(R.id.cart_button);
+        
+        
+        giftButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		Intent intent = new Intent(context, 
+        				HomeActivity.class);
+        		startActivity(intent);
+        	}
+        });
+        
+        peopleButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		//Toast.makeText(getApplicationContext(),
+        		//		getString(R.string.people), 1000).show();
+        		
+        		Intent intent = new Intent(context, 
+        				SampleFaceAppActivity.class);
+        		startActivity(intent);
+        		
+        	}
+        });
+        
+        searchButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		Toast.makeText(getApplicationContext(),
+        				getString(R.string.search), 1000).show();
+        	}
+        });
+        
+        cartButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		Toast.makeText(getApplicationContext(),
+        				getString(R.string.cart), 1000).show();
+        	}
+        });
+    }
 
 
 }
