@@ -84,7 +84,7 @@ public class CategoriesActivity extends Activity {
         		productsContent.addView(itemTitle);
         		
         		ImageView iv = new ImageView(this);
-            	iv.setImageResource(R.drawable.loading_small);
+            	iv.setImageResource(R.drawable.loading);
             	int minDimen = Util.dpToPx(
             			getString(R.dimen.horz_scroll_height),
             			context);
@@ -102,7 +102,7 @@ public class CategoriesActivity extends Activity {
 
             	productsContent.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
-            			R.drawable.loading_small);
+            			R.drawable.loading);
             	
         	}
             

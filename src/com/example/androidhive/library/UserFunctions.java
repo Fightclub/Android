@@ -13,16 +13,21 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
+
 
 public class UserFunctions {
 	
 	private JSONParser jsonParser;
 	
 	private static String loginURL = "http://10.0.2.2/ah_login_api/";
-	private static String registerURL = "http://10.0.2.2/ah_login_api/";
+	private static String registerURL = "https://fight-club-beta.herokuapp.com/network/a/user/new?";
 	
 	private static String login_tag = "login";
 	private static String register_tag = "register";
+	
+	private static final String TAG = "UserFunctions";
 	
 	// constructor
 	public UserFunctions(){
@@ -42,7 +47,7 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("password", password));
 		JSONObject json = jsonParser.getJSONFromUrl(loginURL, params);
 		// return json
-		// Log.e("JSON", json.toString());
+		Log.e("JSON", json.toString());
 		return json;
 	}
 	
@@ -60,8 +65,14 @@ public class UserFunctions {
 		params.add(new BasicNameValuePair("email", email));
 		params.add(new BasicNameValuePair("password", password));
 		
+		String newUrl = registerURL 
+				+ "first="+ Uri.encode(name) 
+				+ "&last=" + Uri.encode(name)
+				+ "&email="+ Uri.encode(email)
+				+ "&password=" + Uri.encode(password);
+		Log.v(TAG, "Encoded URL: " + newUrl);
 		// getting JSON Object
-		JSONObject json = jsonParser.getJSONFromUrl(registerURL, params);
+		JSONObject json = jsonParser.getJSONFromUrl(newUrl, params);
 		// return json
 		return json;
 	}

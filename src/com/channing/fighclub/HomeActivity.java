@@ -6,6 +6,7 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -73,7 +74,7 @@ public class HomeActivity extends Activity {
         		//		getString(R.string.people), 1000).show();
         		
         		Intent intent = new Intent(context, 
-        				SampleFaceAppActivity.class);
+        				SampleFaceAppActivity2.class);
         		startActivity(intent);
         		
         	}
@@ -149,7 +150,7 @@ public class HomeActivity extends Activity {
         		String url = JsonUtil.handleJsonObject
         				(featuredProducts.getString(i), "icon");
         		ImageView iv = new ImageView(this);
-            	iv.setImageResource(R.drawable.loading_small);
+            	iv.setImageResource(R.drawable.loading);
             	int minDimen = Util.dpToPx(
             			getString(R.dimen.featured_horz_height),
             			context);
@@ -175,7 +176,7 @@ public class HomeActivity extends Activity {
             	
             	featuredHorzScroll.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
-            			R.drawable.loading_small);
+            			R.drawable.loading);
             	
         	}
             
@@ -199,7 +200,7 @@ public class HomeActivity extends Activity {
         		String url = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "icon");
         		ImageView iv = new ImageView(this);
-            	iv.setImageResource(R.drawable.loading_small);
+            	iv.setImageResource(R.drawable.loading);
             	int minDimen = Util.dpToPx(
             			getString(R.dimen.horz_scroll_height),
             			context);
@@ -222,7 +223,7 @@ public class HomeActivity extends Activity {
             			getString(R.string.categories), title, id);
             	categoryHorzScroll.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
-            			R.drawable.loading_small);
+            			R.drawable.loading);
             	
         	}
             
@@ -245,7 +246,7 @@ public class HomeActivity extends Activity {
         		String url = JsonUtil.handleJsonObject
         				(vendorProducts.getString(i), "icon");
         		ImageView iv = new ImageView(this);
-            	iv.setImageResource(R.drawable.loading_small);
+            	iv.setImageResource(R.drawable.loading);
             	int minDimen = Util.dpToPx(
             			getString(R.dimen.horz_scroll_height),
             			context);
@@ -268,7 +269,7 @@ public class HomeActivity extends Activity {
             	//iv.setBackgroundResource(R.layout.background);
             	vendorHorzScroll.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
-            			R.drawable.loading_small);
+            			R.drawable.loading);
             	
         	}
             

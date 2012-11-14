@@ -37,12 +37,28 @@
             android:label="categories activity label" >
         </activity>
         <activity
-            android:name="com.channing.fighclub.PeopleActivity"
+            android:name="com.channing.fighclub.SampleFaceAppActivity2"
+            android:label="sample faceapp activity 2 label" >
+        </activity>
+        <activity
+            android:name="com.channing.fighclub.RegisterActivity2"
+            android:label="register activity 2 activity label" >
+        </activity>
+        <activity
+            android:name="com.channing.fighclub.LoginActivity2"
+            android:label="login activity 2 activity label" >
+        </activity>
+        <activity
+            android:name=".DONOTUSEPeopleActivity"
             android:label="people activity label" >
         </activity>
         <activity
             android:name="com.faceapp.SampleFaceAppActivity"
             android:label="sample faceapp activity label" >
+        </activity>
+        <activity
+            android:name="com.example.androidhive.RegisterActivity"
+            android:label="register activity label" >
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>

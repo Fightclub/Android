@@ -22,6 +22,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.channing.fighclub.HttpUtil;
+
 import android.util.Log;
 
 public class JSONParser {
@@ -29,6 +31,7 @@ public class JSONParser {
 	static InputStream is = null;
 	static JSONObject jObj = null;
 	static String json = "";
+	private static final String TAG = "JSONParser";
 
 	// constructor
 	public JSONParser() {
@@ -40,21 +43,24 @@ public class JSONParser {
 		// Making HTTP request
 		try {
 			// defaultHttpClient
-			DefaultHttpClient httpClient = new DefaultHttpClient();
-			HttpPost httpPost = new HttpPost(url);
-			httpPost.setEntity(new UrlEncodedFormEntity(params));
-
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			HttpEntity httpEntity = httpResponse.getEntity();
-			is = httpEntity.getContent();
-
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//			DefaultHttpClient httpClient = new DefaultHttpClient();
+			
+//			HttpPost httpPost = new HttpPost(url);
+//			httpPost.setEntity(new UrlEncodedFormEntity(params));
+//
+//			HttpResponse httpResponse = httpClient.execute(httpPost);
+//			HttpEntity httpEntity = httpResponse.getEntity();
+//			is = httpEntity.getContent();
+			String response = HttpUtil.request(url);
+			Log.v(TAG, "register response: " + response);
+		} catch (Exception ex) {}
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		} catch (ClientProtocolException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(

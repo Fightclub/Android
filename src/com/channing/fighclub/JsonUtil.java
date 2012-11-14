@@ -9,9 +9,12 @@ import android.util.Log;
 public class JsonUtil{
     
 	private static final String TAG = "JsonUtil";
+	public static final String JSON_OBJECT_FAIL = "JSON Object Parsing Failed";
+	public static final String JSON_ARRAY_FAIL = "JSON Array Parsing Failed";
+	
 	
     public static String handleJsonObject(String str, String key) {
-    	String rtn = "JSON Object Parsing Failed";
+    	String rtn = JSON_OBJECT_FAIL;
     	try {
     		JSONObject jObject = new JSONObject(str);
     		rtn = jObject.getString(key);
@@ -24,7 +27,7 @@ public class JsonUtil{
     
     
     public static String handleJsonArray(String str, int index) {
-    	String rtn = "JSON Array Parsing Failed";
+    	String rtn = JSON_ARRAY_FAIL;
     	try {
     		JSONArray jArray = new JSONArray(str);
     		rtn = jArray.getString(index);

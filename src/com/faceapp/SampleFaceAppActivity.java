@@ -19,8 +19,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.channing.fighclub.Constants;
 import com.channing.fighclub.HomeActivity;
 import com.channing.fighclub.R;
+import com.channing.fighclub.RegisterActivity2;
 import com.facebook.android.DialogError;
 import com.facebook.android.Facebook;
 import com.facebook.android.Facebook.DialogListener;
@@ -30,6 +32,7 @@ import com.facebook.android.Util;
 public class SampleFaceAppActivity extends Activity {
 
 	public static final String TAG = "SampleFacebookAppActivity";
+	public String api_key = null;
 
 
 	TextView nameText;
@@ -54,6 +57,57 @@ public class SampleFaceAppActivity extends Activity {
         		connect();
         	}
         });
+        
+        //Intent thisIntent = getIntent();
+        //String name = thisIntent.getStringExtra(HomeActivity.NAME);
+        //String id = thisIntent.getStringExtra(HomeActivity.ID);
+        
+        Log.v(TAG, "api_key: " + api_key);
+        
+        /////// For PEOPLE ACTIVITY ONLY
+        Button signupButton = (Button) findViewById(R.id.signupBtn);
+        signupButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		Log.v(TAG, "Signup clicked!");
+        		Intent intent = new Intent(context, 
+        				RegisterActivity2.class);
+        		startActivity(intent);
+        	}
+        });
+        
+        Button logoutButton = (Button) findViewById(R.id.logoutBtn);
+        logoutButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		logout();
+        	}
+        });
+        
+        
+        Button loginButton = (Button) findViewById(R.id.loginBtn);
+        loginButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+                SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+                api_key = prefs.getString(Constants.API_KEY_KEY, null);
+                Toast.makeText(getApplicationContext(), 
+						"You're apikey is: " + api_key, 1000).show();
+        	}
+        });
+        
+        Button debugButton = (Button) findViewById(R.id.debugBtn);
+        debugButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		
+                //SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+                //String firstname = prefs.getString(Constants.FIRST_NAME, null);
+                
+                
+		    	SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+                String debug = prefs.getString("debug", "debug failed");
+                Toast.makeText(getApplicationContext(), 
+						"debug: " + debug, 1000).show();
+        	}
+        });
+        
 
 
         feedList = (FeedListView) findViewById(R.id.feedList);
@@ -71,6 +125,18 @@ public class SampleFaceAppActivity extends Activity {
     }
 
 
+    public void logout() {
+    	SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+    	editor.putString(Constants.API_KEY_KEY, null);
+    	editor.putString(Constants.FIRST_NAME, null);
+    	editor.putString(Constants.LAST_NAME, null);
+    	editor.putString(Constants.EMAIL, null);
+    	editor.putString(Constants.FB_EMAIL, null);
+    	editor.putString(Constants.BDAY, null);
+    	editor.commit();
+    	Toast.makeText(getApplicationContext(), 
+				getString(R.string.logged_out), 1000).show();
+    }
 
 
     private void connect() {
@@ -186,7 +252,6 @@ public class SampleFaceAppActivity extends Activity {
 		super.onResume();
 
 		loadProperties();
-
 	}
 
 	private void saveProperties() {
