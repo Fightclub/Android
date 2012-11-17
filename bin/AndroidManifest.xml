@@ -49,6 +49,10 @@
             android:label="login activity 2 activity label" >
         </activity>
         <activity
+            android:name="com.channing.fighclub.GiftCardActivity"
+            android:label="gift card activity 2 activity label" >
+        </activity>
+        <activity
             android:name=".DONOTUSEPeopleActivity"
             android:label="people activity label" >
         </activity>

@@ -1,6 +1,7 @@
 package com.channing.fighclub;
 
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,68 +11,40 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ContentActivity extends Activity {
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+
+public class GiftCardActivity extends Activity {
 
 	private Context context;
-	private static final String TAG = "ContentActivity";
+	private static final String TAG = "GiftCardActivity";
 
-	public static final String productUrl = HomeActivity.defaultUrl
-			+ "product?id=";
+	public static final String categoryUrl = HomeActivity.defaultUrl
+			+ "product/category?id=";
 
 	@Override
-	public void onCreate(Bundle savedInstanceState){
-
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		context = getApplicationContext();
-		setContentView(R.layout.content_view);
+		setContentView(R.layout.gift_card);
 		setUpClickListensers();
-		Intent thisIntent = getIntent();
-		String name = thisIntent.getStringExtra(HomeActivity.NAME);
-		String id = thisIntent.getStringExtra(HomeActivity.ID);
-		TextView titleView = (TextView) findViewById(R.id.content_view_title);	  
-		titleView.setText(name);
-		loadContents(id);
 	}
-	
-	
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
-public void loadContents(String id) {
-    	
-    	String aOutput = HttpUtil.request(productUrl+id);    	
-    	
-    	String price = JsonUtil.handleJsonObject (aOutput,"price");
-    	Log.v(TAG, "aOutput = " + aOutput);
-    	Log.v(TAG, "productURl/ID = " + productUrl+id);
-    	// TODO String logo = 
-    	String productImage = JsonUtil.handleJsonObject (aOutput, "icon");
-    	String description = JsonUtil.handleJsonObject(aOutput, "description");
-    	
-    	TextView priceView = (TextView)  findViewById (R.id.content_view_price);
-    	ImageView productImageView = (ImageView) findViewById (R.id.product_image);
-    	//TODO ImageView LogoView
-    	TextView descriptionView = (TextView)  findViewById (R.id.content_view_description);
-    	
-    	
-    	priceView.setText(price);
-    	UrlImageViewHelper.setUrlDrawable(productImageView, productImage);
-    	descriptionView.setText(description);
-    	
-}
 
-void setUpClickListensers() {
+	private void setUpClickListensers() {
 		Button giftButton = (Button) findViewById(R.id.gifts_button);
 		Button peopleButton = (Button) findViewById(R.id.people_button);
 		ImageView searchButton = (ImageView) findViewById(R.id.search_button);

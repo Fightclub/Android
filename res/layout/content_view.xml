@@ -39,7 +39,7 @@
                android:paddingTop="5sp" >
 
                <TextView
-                   android:id="@+id/content_view_content"
+                   android:id="@+id/content_view_title"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:gravity="center"
@@ -57,7 +57,7 @@
                    android:paddingTop="5sp" >
 
                    <ImageView
-                       android:id="@+id/mainjamba"
+                       android:id="@+id/product_image"
                        android:layout_width="174dp"
                        android:layout_height="241dp"
                        android:layout_gravity="center"
@@ -67,7 +67,7 @@
                        android:paddingLeft="0dp"
                        android:paddingRight="0dp"
                        android:scaleType="fitXY"
-                       android:src="@drawable/loading" />
+                       android:src="@drawable/loading_small" />
 
                    <FrameLayout
                        android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                            android:orientation="vertical" >
 
                           <TextView
-                   android:id="@+id/content_view_content"
+                   android:id="@+id/content_view_price"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:gravity="center"
@@ -106,7 +106,7 @@
                    android:textSize="20sp" />
 
                            <ImageView
-                               android:id="@+id/mainjamba"
+                               android:id="@+id/logoView"
                                android:layout_width="90dp"
                                android:layout_height="102dp"
                                android:layout_marginLeft="5dp"
@@ -115,13 +115,13 @@
                                android:paddingLeft="0dp"
                                android:paddingRight="0dp"
                                android:scaleType="fitXY"
-                               android:src="@drawable/loading"/>
+                               android:src="@drawable/loading_small" />
                        </LinearLayout>
                    </LinearLayout>
                </LinearLayout>
                
                 <TextView
-                   android:id="@+id/content_view_content"
+                   android:id="@+id/content_view_description"
                    android:layout_width="fill_parent"
                    android:layout_height="match_parent"
                    android:layout_gravity="right"

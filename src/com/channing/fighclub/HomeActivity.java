@@ -89,8 +89,9 @@ public class HomeActivity extends Activity {
         
         cartButton.setOnClickListener(new OnClickListener() {
         	public void onClick(View v) {
-        		Toast.makeText(getApplicationContext(),
-        				getString(R.string.cart), 1000).show();
+        		Intent intent = new Intent(context,
+                                           GiftCardActivity.class);
+        		startActivity(intent);
         	}
         });
     }
@@ -121,7 +122,17 @@ public class HomeActivity extends Activity {
             		startActivity(intent);
             	}
     		});
-    	} else {
+    	} else if (type == getString(R.string.featured_products)) {
+     		iv.setOnClickListener(new OnClickListener() {
+             	public void onClick(View v) {
+             		Intent intent = new Intent(context,
+                                               ContentActivity.class);
+             		intent.putExtra(NAME, title);
+             		intent.putExtra(ID, idx);
+             		startActivity(intent);
+             	}
+     		});
+     	} else {
     		iv.setOnClickListener(new OnClickListener() {
             	public void onClick(View v) {
             		Toast.makeText(getApplicationContext(),
@@ -149,6 +160,8 @@ public class HomeActivity extends Activity {
         	for (int i=0; i < featuredProducts.length(); i++) {
         		String url = JsonUtil.handleJsonObject
         				(featuredProducts.getString(i), "icon");
+                String title = JsonUtil.handleJsonObject(featuredProducts.getString(i), "name");
+            	String id = JsonUtil.handleJsonObject(featuredProducts.getString(i), "id");
         		ImageView iv = new ImageView(this);
             	iv.setImageResource(R.drawable.loading);
             	int minDimen = Util.dpToPx(
@@ -166,14 +179,7 @@ public class HomeActivity extends Activity {
             	iv.setLayoutParams(lp);
             	//iv.setBackgroundResource(R.layout.background);
             	
-            	iv.setOnClickListener(new OnClickListener() {
-                	public void onClick(View v) {
-                		Intent contentIntent = new Intent(context, 
-                				ContentActivity.class);
-                		startActivity(contentIntent);
-                	}
-                });
-            	
+            	setImageClickListener(iv, getString(R.string.featured_products), title, id);
             	featuredHorzScroll.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
             			R.drawable.loading);
