@@ -27,8 +27,8 @@ public class GiftCardActivity extends Activity {
 	private Context context;
 	private static final String TAG = "GiftCardActivity";
 
-	public static final String categoryUrl = HomeActivity.defaultUrl
-			+ "product/category?id=";
+	public static final String categoryUrl = Constants.DEFAULT_HOST
+			+ "/network/a/gift/redeem?";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

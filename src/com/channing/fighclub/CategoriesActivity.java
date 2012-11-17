@@ -27,8 +27,6 @@ public class CategoriesActivity extends Activity {
 	private Context context;
 	private static final String TAG = "CategoriesActivity";
 	
-	public static final String categoryUrl = HomeActivity.defaultUrl
-			+ "product/category?id=";
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +52,7 @@ public class CategoriesActivity extends Activity {
     
     public void loadContents(String id) {
     	
-    	String aOutput = HttpUtil.request(categoryUrl+id);
+    	String aOutput = HttpUtil.request(Constants.CATEGORIES_URL + id);
         String productsString = 
         		JsonUtil.handleJsonObject(aOutput, "products");
         

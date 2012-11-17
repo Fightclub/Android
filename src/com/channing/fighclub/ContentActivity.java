@@ -20,9 +20,6 @@ public class ContentActivity extends Activity {
 	private Context context;
 	private static final String TAG = "ContentActivity";
 
-	public static final String productUrl = HomeActivity.defaultUrl
-			+ "product?id=";
-
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 
@@ -50,11 +47,11 @@ public class ContentActivity extends Activity {
 	
 public void loadContents(String id) {
     	
-    	String aOutput = HttpUtil.request(productUrl+id);    	
+    	String aOutput = HttpUtil.request(Constants.PRODUCT_URL + id);    	
     	
     	String price = JsonUtil.handleJsonObject (aOutput,"price");
-    	Log.v(TAG, "aOutput = " + aOutput);
-    	Log.v(TAG, "productURl/ID = " + productUrl+id);
+    	//Log.v(TAG, "aOutput = " + aOutput);
+    	//Log.v(TAG, "productURl/ID = " + productUrl+id);
     	// TODO String logo = 
     	String productImage = JsonUtil.handleJsonObject (aOutput, "icon");
     	String description = JsonUtil.handleJsonObject(aOutput, "description");

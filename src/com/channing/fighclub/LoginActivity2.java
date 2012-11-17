@@ -40,7 +40,7 @@ public class LoginActivity2 extends Activity {
 	private static String KEY_NAME = "name";
 	private static String KEY_EMAIL = "email";
 	private static String KEY_CREATED_AT = "created_at";
-	private static String registerURL = "https://fight-club-beta.herokuapp.com/network/a/user/login?";
+
 
 	private static final String TAG = "LoginActivity";
 
@@ -62,7 +62,7 @@ public class LoginActivity2 extends Activity {
 			public void onClick(View view) {
 				String email = inputEmail.getText().toString();
 				String password = inputPassword.getText().toString();
-				String newUrl = registerURL 
+				String newUrl = Constants.LOGIN_URL
 						+ "&email="+ Uri.encode(email)
 						+ "&password=" + Uri.encode(password);
 				Log.v(TAG, "Encoded URL: " + newUrl);

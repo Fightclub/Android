@@ -25,7 +25,8 @@ import com.example.androidhive.LoginActivity;
 public class RegisterActivity2 extends Activity {
 	Button btnRegister;
 	Button btnLinkToLogin;
-	EditText inputFullName;
+	EditText inputFirstName;
+	EditText inputLastName;
 	EditText inputEmail;
 	EditText inputPassword;
 	TextView registerErrorMsg;
@@ -38,7 +39,6 @@ public class RegisterActivity2 extends Activity {
 	private static String KEY_NAME = "name";
 	private static String KEY_EMAIL = "email";
 	private static String KEY_CREATED_AT = "created_at";
-	private static String registerURL = "https://fight-club-beta.herokuapp.com/network/a/user/new?";
 
 	
 	private static final String TAG = "RegisterActivity";
@@ -49,7 +49,8 @@ public class RegisterActivity2 extends Activity {
 		setContentView(R.layout.register);
 
 		// Importing all assets like buttons, text fields
-		inputFullName = (EditText) findViewById(R.id.registerName);
+		inputFirstName = (EditText) findViewById(R.id.firstName);
+		inputLastName = (EditText) findViewById(R.id.lastName);
 		inputEmail = (EditText) findViewById(R.id.registerEmail);
 		inputPassword = (EditText) findViewById(R.id.registerPassword);
 		btnRegister = (Button) findViewById(R.id.btnRegister);
@@ -60,13 +61,14 @@ public class RegisterActivity2 extends Activity {
 		btnRegister.setOnClickListener(new View.OnClickListener() {			
 			public void onClick(View view) {
 				Log.v(TAG, "Register button clicked");
-				String name = inputFullName.getText().toString();
+				String firstName = inputFirstName.getText().toString();
+				String lastName = inputLastName.getText().toString();
 				String email = inputEmail.getText().toString();
 				String password = inputPassword.getText().toString();
 				
-				String newUrl = registerURL 
-						+ "first="+ Uri.encode(name) 
-						+ "&last=" + Uri.encode(name)
+				String newUrl = Constants.REGISTER_URL
+						+ "first="+ Uri.encode(firstName) 
+						+ "&last=" + Uri.encode(lastName)
 						+ "&email="+ Uri.encode(email)
 						+ "&password=" + Uri.encode(password);
 				Log.v(TAG, "Encoded URL: " + newUrl);

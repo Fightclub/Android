@@ -27,9 +27,6 @@ public class BrandsActivity extends Activity {
 	private Context context;
 	private static final String TAG = "BrandsActivity";
 	
-	public static final String brandsUrl = HomeActivity.defaultUrl
-			+ "vendor?id=";
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +51,7 @@ public class BrandsActivity extends Activity {
     
     public void loadContents(String id) {
     	
-    	String aOutput = HttpUtil.request(brandsUrl+id);
+    	String aOutput = HttpUtil.request(Constants.BRANDS_URL + id);
         String productsString = 
         		JsonUtil.handleJsonObject(aOutput, "products");
         

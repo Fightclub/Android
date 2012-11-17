@@ -17,14 +17,25 @@
             android:text="REGISTER"
             android:textSize="25dip"
             android:textStyle="bold" />
-        <!--  Name Label -->
+        <!--  First Name Label -->
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Full Name" />
-		<!--  Name TextField -->
+            android:text="First Name" />
+		<!--  First Name TextField -->
         <EditText
-            android:id="@+id/registerName"
+            android:id="@+id/firstName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        
+        <!--  Last Name Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Name" />
+        <!--  Last Name TextField -->
+        <EditText
+            android:id="@+id/lastName"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
         
@@ -37,7 +48,9 @@
         <EditText
             android:id="@+id/registerEmail"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:capitalize="none"
+            android:inputType="textEmailAddress"/>
         
 		<!--  Password Label -->
         <TextView

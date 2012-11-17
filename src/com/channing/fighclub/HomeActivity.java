@@ -26,10 +26,6 @@ public class HomeActivity extends Activity {
 	private Context context;
 	private static final String TAG = "HomeActivity";
 	
-	public static final String defaultUrl = 
-			"http://fight-club-beta.herokuapp.com/catalog/a/";
-	public static final String featuredUrl = 
-		"http://fight-club-beta.herokuapp.com/catalog/a/product/category?id=2";
 	
 	public static final String NAME = "name";
 	public static final String ID = "id";
@@ -147,7 +143,7 @@ public class HomeActivity extends Activity {
     private void loadContents() {
     	
     	//Featured Item
-        String featruedOutput = HttpUtil.request(featuredUrl);
+        String featruedOutput = HttpUtil.request(Constants.FEATURED_URL);
         String featuredString = 
         		JsonUtil.handleJsonObject(featruedOutput, "products");
 
@@ -192,7 +188,7 @@ public class HomeActivity extends Activity {
 		
 		
 		//Categories
-		String aOutput = HttpUtil.request(defaultUrl);
+		String aOutput = HttpUtil.request(Constants.HOME_URL);
         String categoryString = 
         		JsonUtil.handleJsonObject(aOutput, "categories");
         
