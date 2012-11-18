@@ -19,7 +19,7 @@ public class JsonUtil{
     		JSONObject jObject = new JSONObject(str);
     		rtn = jObject.getString(key);
     	} catch (JSONException e) {
-    		Log.v(TAG, "JSON parsing Failed: " + e);
+    		Log.v(TAG, "JSON parsing Failed key:(" + key + "): " + e);
     	} finally {
     		return rtn;
     	}
@@ -32,7 +32,7 @@ public class JsonUtil{
     		JSONArray jArray = new JSONArray(str);
     		rtn = jArray.getString(index);
     	} catch (JSONException e) {
-    		Log.v(TAG, "JSON parsing Failed: " + e);
+    		Log.v(TAG, "JSON parsing Failed key:(" + index + "): " + e);
     	} finally {
     		return rtn;
     	}

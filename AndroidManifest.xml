@@ -45,12 +45,21 @@
             android:label="register activity 2 activity label" >
         </activity>
         <activity
+            android:name="com.channing.fighclub.BuyItemActivity"
+            android:label="buy item activity label" >
+        </activity>
+        <activity
             android:name="com.channing.fighclub.LoginActivity2"
             android:label="login activity 2 activity label" >
         </activity>
         <activity
             android:name="com.channing.fighclub.GiftCardActivity"
             android:label="gift card activity 2 activity label" >
+        </activity>
+        <activity
+            android:name="com.paypal.android.MEP.PayPalActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation">
         </activity>
         <activity
             android:name=".DONOTUSEPeopleActivity"
@@ -66,4 +75,5 @@
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 </manifest>

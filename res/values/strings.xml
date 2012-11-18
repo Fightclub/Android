@@ -17,5 +17,6 @@
     <string name="logout">Logout</string>
     <string name="signup">Sign Up</string>
     <string name="register_fail">Registeration Failed</string>
+    <string name="login_fail">Login Failed</string>
     <string name="logged_out">Logged Out</string>
 </resources>

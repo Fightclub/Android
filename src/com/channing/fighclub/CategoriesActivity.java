@@ -36,8 +36,8 @@ public class CategoriesActivity extends Activity {
         setContentView(R.layout.categories_view);
         setUpClickListensers();
         Intent thisIntent = getIntent();
-        String name = thisIntent.getStringExtra(HomeActivity.NAME);
-        String id = thisIntent.getStringExtra(HomeActivity.ID);
+        String name = thisIntent.getStringExtra(Constants.NAME);
+        String id = thisIntent.getStringExtra(Constants.ID);
         TextView title = (TextView) findViewById(R.id.categories_title);
         title.setText(name);
         loadContents(id);

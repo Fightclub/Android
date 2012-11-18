@@ -29,8 +29,8 @@ public class ContentActivity extends Activity {
 		setContentView(R.layout.content_view);
 		setUpClickListensers();
 		Intent thisIntent = getIntent();
-		String name = thisIntent.getStringExtra(HomeActivity.NAME);
-		String id = thisIntent.getStringExtra(HomeActivity.ID);
+		String name = thisIntent.getStringExtra(Constants.NAME);
+		String id = thisIntent.getStringExtra(Constants.ID);
 		TextView titleView = (TextView) findViewById(R.id.content_view_title);	  
 		titleView.setText(name);
 		loadContents(id);

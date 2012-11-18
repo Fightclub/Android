@@ -35,8 +35,8 @@ public class BrandsActivity extends Activity {
         setContentView(R.layout.brands_view);
         setUpClickListensers();
         Intent thisIntent = getIntent();
-        String name = thisIntent.getStringExtra(HomeActivity.NAME);
-        String id = thisIntent.getStringExtra(HomeActivity.ID);
+        String name = thisIntent.getStringExtra(Constants.NAME);
+        String id = thisIntent.getStringExtra(Constants.ID);
         TextView title = (TextView) findViewById(R.id.brands_title);
         title.setText(name);
         loadContents(id);

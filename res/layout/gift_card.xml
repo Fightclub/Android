@@ -55,7 +55,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/card_outline" />
 
-    <TextView
+    <ImageView
         android:id="@+id/barcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +63,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="105dp"
         android:gravity="center"
-        android:text="5975902359872340"
         android:textColor="#000000"
         android:textSize="25sp" />
 
@@ -91,7 +90,7 @@
         android:paddingLeft="0dp"
         android:paddingRight="0dp"
         android:scaleType="fitXY"
-        android:src="@drawable/jambamenu" />
+        android:src="@drawable/loading" />
 
     <ImageView
         android:id="@+id/logo"
@@ -128,7 +127,6 @@
         android:layout_marginTop="25dp"
         android:gravity="left"
         android:paddingTop="15sp"
-        android:text="Peter Lee Suggested:"
         android:textColor="#000000"
         android:textSize="13sp" />
 

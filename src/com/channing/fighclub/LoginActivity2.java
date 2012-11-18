@@ -107,7 +107,7 @@ public class LoginActivity2 extends Activity {
 					} catch (JSONException ex) {
 						Log.v(TAG, "Login Response JSON failed: " + ex);
 						Toast.makeText(getApplicationContext(), 
-								getString(R.string.register_fail), 1000).show();
+								getString(R.string.login_fail), 1000).show();
 					}
 					
 				}

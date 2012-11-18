@@ -27,10 +27,6 @@ public class HomeActivity extends Activity {
 	private static final String TAG = "HomeActivity";
 	
 	
-	public static final String NAME = "name";
-	public static final String ID = "id";
-	
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +74,11 @@ public class HomeActivity extends Activity {
         
         searchButton.setOnClickListener(new OnClickListener() {
         	public void onClick(View v) {
-        		Toast.makeText(getApplicationContext(),
-        				getString(R.string.search), 1000).show();
+        		//Toast.makeText(getApplicationContext(),
+        		//		getString(R.string.search), 1000).show();
+        		Intent intent = new Intent(context,
+                        BuyItemActivity.class);
+        		startActivity(intent);
         	}
         });
         
@@ -103,8 +102,8 @@ public class HomeActivity extends Activity {
             	public void onClick(View v) {
             		Intent intent = new Intent(context, 
             				BrandsActivity.class);
-            		intent.putExtra(NAME, title);
-            		intent.putExtra(ID, idx);
+            		intent.putExtra(Constants.NAME, title);
+            		intent.putExtra(Constants.ID, idx);
             		startActivity(intent);
             	}
             });
@@ -113,8 +112,8 @@ public class HomeActivity extends Activity {
             	public void onClick(View v) {
             		Intent intent = new Intent(context, 
             				CategoriesActivity.class);
-            		intent.putExtra(NAME, title);
-            		intent.putExtra(ID, idx);
+            		intent.putExtra(Constants.NAME, title);
+            		intent.putExtra(Constants.ID, idx);
             		startActivity(intent);
             	}
     		});
@@ -123,8 +122,8 @@ public class HomeActivity extends Activity {
              	public void onClick(View v) {
              		Intent intent = new Intent(context,
                                                ContentActivity.class);
-             		intent.putExtra(NAME, title);
-             		intent.putExtra(ID, idx);
+             		intent.putExtra(Constants.NAME, title);
+             		intent.putExtra(Constants.ID, idx);
              		startActivity(intent);
              	}
      		});

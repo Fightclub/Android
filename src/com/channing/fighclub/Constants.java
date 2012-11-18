@@ -9,6 +9,13 @@ public class Constants {
 	public static final String EMAIL = "email";
 	public static final String FB_EMAIL = "fbemail";
 	public static final String BDAY = "bday";
+	public static final String ID = "id";
+	public static final String NAME = "name";
+	public static final String REDEMPTION_INFO = "redemptionInfo";
+	public static final String BARCODE = "barcode";
+	public static final String PRODUCT = "product";
+	public static final String ICON = "icon";
+	public static final String SENDER = "sender";
 	
 	public static final String SHARED_PREF = "mypref";
 	public static final String DEFAULT_HOST = 
@@ -22,7 +29,8 @@ public class Constants {
 	public static final String PRODUCT_URL = HOME_URL + "product?id=";
 	public static final String LOGIN_URL = DEFAULT_HOST + "network/a/user/login?";
 	public static final String REGISTER_URL = DEFAULT_HOST + "network/a/user/new?";
-
+	public static final String REDEEM_URL = DEFAULT_HOST + "/network/a/gift/redeem?";
+	public static final String GIFT_URL = DEFAULT_HOST + "network/gift/new?";
 
 
 }
