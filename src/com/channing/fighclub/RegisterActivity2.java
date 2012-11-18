@@ -71,7 +71,6 @@ public class RegisterActivity2 extends Activity {
 						+ "&last=" + Uri.encode(lastName)
 						+ "&email="+ Uri.encode(email)
 						+ "&password=" + Uri.encode(password);
-				Log.v(TAG, "Encoded URL: " + newUrl);
 				String response = HttpUtil.request(newUrl);
 				Log.v(TAG, "register response: " + response);
 				

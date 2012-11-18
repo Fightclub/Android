@@ -37,73 +37,218 @@
         android:orientation="vertical"
         android:paddingBottom="5sp" >
 
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#ffffffff" >
+        <ScrollView
+            android:id="@+id/scrollcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
             <LinearLayout
-                android:id="@+id/buttonLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:orientation="vertical" >
-
-                <ImageView
-                    android:id="@+id/connectBtn"
-                    android:src = "@drawable/facebook_connect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop = "2dp"
-                    android:layout_marginBottom = "2dp"
-                    android:textColor="#ff000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/loginBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ff000000"
-                    android:text="@string/login"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/signupBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ff000000"
-                    android:text="@string/signup"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/logoutBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ff000000"
-                    android:text="@string/logout"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-                <Button
-                    android:id="@+id/debugBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#ff000000"
-                    android:text="debug"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <com.faceapp.FeedListView
-                android:id="@+id/feedList"
+                android:id="@+id/sub_content_view"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_above="@+id/addLayout"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/buttonLayout"
-                android:cacheColorHint="#00000000"
-                android:listSelector="#00000000" />
-        </RelativeLayout>
+                android:layout_above="@id/bottom_menu"
+                android:layout_below="@id/top_header"
+                android:background="#EAEAEA"
+                android:orientation="vertical"
+                android:paddingBottom="5sp" >
+
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#ffffffff" >
+
+                    <LinearLayout
+                        android:id="@+id/featured_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#EAEAEA"
+                        android:orientation="vertical"
+                        android:paddingBottom="5sp" >
+
+                        <LinearLayout
+                            android:id="@+id/featured_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#EAEAEA"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5sp" >
+
+                            <ImageView
+                                android:id="@+id/featured_product_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignRight="@+id/please_show"
+                                android:layout_alignTop="@+id/suggested"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:paddingRight="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/starbucks" />
+
+                            <ImageView
+                                android:id="@+id/connectBtn"
+                                android:layout_width="148dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="35dp"
+                                android:gravity="right|center"
+                                android:src="@drawable/facebook_connect"
+                                android:textColor="#ff000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/featured_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#EAEAEA"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5sp" >
+
+                            <ImageView
+                                android:id="@+id/featured_product_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignRight="@+id/please_show"
+                                android:layout_alignTop="@+id/suggested"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:paddingRight="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/starbucks" />
+
+                            <Button
+                                android:id="@+id/loginBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="35dp"
+                                android:gravity="right|center"
+                                android:text="@string/login"
+                                android:textColor="#ff000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/featured_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#EAEAEA"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5sp" >
+
+                            <ImageView
+                                android:id="@+id/featured_product_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignRight="@+id/please_show"
+                                android:layout_alignTop="@+id/suggested"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:paddingRight="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/starbucks" />
+
+                            <Button
+                                android:id="@+id/signupBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="35dp"
+                                android:gravity="right|center"
+                                android:text="@string/signup"
+                                android:textColor="#ff000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/featured_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#EAEAEA"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5sp" >
+
+                            <ImageView
+                                android:id="@+id/featured_product_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignRight="@+id/please_show"
+                                android:layout_alignTop="@+id/suggested"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:paddingRight="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/starbucks" />
+
+                            <Button
+                                android:id="@+id/logoutBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="35dp"
+                                android:gravity="right|center"
+                                android:text="@string/logout"
+                                android:textColor="#ff000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/featured_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#EAEAEA"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5sp" >
+
+                            <ImageView
+                                android:id="@+id/featured_product_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignRight="@+id/please_show"
+                                android:layout_alignTop="@+id/suggested"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:paddingRight="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/starbucks" />
+
+                            <Button
+                                android:id="@+id/debugBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="35dp"
+                                android:gravity="right|center"
+                                android:text="debug"
+                                android:textColor="#ff000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.faceapp.FeedListView
+                        android:id="@+id/feedList"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_above="@+id/addLayout"
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/buttonLayout"
+                        android:cacheColorHint="#00000000"
+                        android:listSelector="#00000000" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 </RelativeLayout>

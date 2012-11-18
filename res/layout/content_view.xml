@@ -75,7 +75,7 @@
                     android:paddingLeft="0dp"
                     android:paddingRight="0dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/loading_small" />
+                    android:src="@drawable/loading" />
 
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
                             android:paddingLeft="0dp"
                             android:paddingRight="0dp"
                             android:scaleType="fitXY"
-                            android:src="@drawable/loading_small" />
+                            android:src="@drawable/loading" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

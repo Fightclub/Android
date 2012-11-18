@@ -2,12 +2,6 @@ package com.channing.fighclub;
 
 import java.math.BigDecimal;
 
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
-import com.paypal.android.MEP.CheckoutButton;
-import com.paypal.android.MEP.PayPal;
-import com.paypal.android.MEP.PayPalActivity;
-import com.paypal.android.MEP.PayPalPayment;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,9 +13,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
+
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import com.paypal.android.MEP.CheckoutButton;
+import com.paypal.android.MEP.PayPal;
+import com.paypal.android.MEP.PayPalActivity;
+import com.paypal.android.MEP.PayPalPayment;
 
 public class ContentActivity extends Activity {
 
@@ -48,6 +48,7 @@ public class ContentActivity extends Activity {
 
 		pp = PayPal.initWithAppID(this, "APP-80W284485P519543T",
 				PayPal.ENV_LIVE);
+		pp.setShippingEnabled(false);
 
 		LinearLayout layoutSimplePayment = new LinearLayout(this);
 
@@ -72,7 +73,7 @@ public class ContentActivity extends Activity {
 
 				payment.setRecipient("seller_1353212236_biz@gmail.com");
 
-				payment.setPaymentType(PayPal.PAYMENT_TYPE_SERVICE);
+				payment.setPaymentType(PayPal.PAYMENT_TYPE_GOODS);
 
 				Intent checkoutIntent = PayPal.getInstance().checkout(payment,
 						context);
@@ -86,10 +87,10 @@ public class ContentActivity extends Activity {
 		LinearLayout content = (LinearLayout) findViewById(R.id.sub_content_view);
 		content.addView(layoutSimplePayment);
 	}
+	
 
-	public void onActivityResults(int requestCode, int resultCode, Intent data) {
-		Toast.makeText(getApplicationContext(), 
-				"request: " + requestCode + " Result: " + resultCode, 1000).show();
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		case Constants.PAYPAL_REQUEST_CODE:
 			switch (resultCode) {
@@ -99,7 +100,7 @@ public class ContentActivity extends Activity {
 				break;
 			case Activity.RESULT_CANCELED:
 				Toast.makeText(getApplicationContext(), 
-						"RESULT CANCELLED", 1000).show();
+						"Payment Cancelled", 1000).show();
 				break;
 			}
 			break;
@@ -107,13 +108,14 @@ public class ContentActivity extends Activity {
 		}
 
 	}
+	
 
 	public void onResume() {
 		super.onResume();
 
 		pp = PayPal.initWithAppID(this, "APP-80W284485P519543T",
 				PayPal.ENV_SANDBOX);
-
+		pp.setShippingEnabled(false);
 		launchSimplePayment = pp.getCheckoutButton(this, PayPal.BUTTON_194x37,
 				CheckoutButton.TEXT_PAY);
 
