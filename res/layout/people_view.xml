@@ -52,9 +52,11 @@
 
                 <ImageView
                     android:id="@+id/connectBtn"
-                    android:src = "@drawable/facebook_login"
-                    android:layout_width="64dp"
-                    android:layout_height="32dp"
+                    android:src = "@drawable/facebook_connect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop = "2dp"
+                    android:layout_marginBottom = "2dp"
                     android:textColor="#ff000000"
                     android:textSize="18dp"
                     android:textStyle="bold" />
