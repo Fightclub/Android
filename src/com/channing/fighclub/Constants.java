@@ -32,5 +32,5 @@ public class Constants {
 	public static final String REDEEM_URL = DEFAULT_HOST + "/network/a/gift/redeem?";
 	public static final String GIFT_URL = DEFAULT_HOST + "network/gift/new?";
 
-
+	public static final int PAYPAL_REQUEST_CODE = 1000;
 }

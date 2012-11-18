@@ -2,23 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ffffff">
+    android:background="#ffffff" >
 
     <!-- HEADER -->
-    <include android:id="@+id/top_header"
-        android:layout_alignParentTop="true" layout="@layout/layout_header" />
 
+    <include
+        android:id="@+id/top_header"
+        android:layout_alignParentTop="true"
+        layout="@layout/layout_header" />
 
     <!-- FOOTER -->
-    <LinearLayout android:id="@+id/bottom_menu"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"         
-        android:orientation="vertical" android:layout_alignParentBottom="true">
+
+    <LinearLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
         <!-- menu bar -->
+
         <include layout="@layout/layout_footer_menu" />
     </LinearLayout>
 
     <!-- MAIN PART -->
-    
+
     <LinearLayout
         android:id="@+id/sub_content_view"
         android:layout_width="fill_parent"
@@ -28,113 +36,111 @@
         android:layout_weight="1"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:paddingBottom="0sp" > 
-        
-    <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:background="#FFFFFF"
-               android:orientation="vertical"
-               android:paddingBottom="5sp"
-               android:paddingTop="5sp" >
+        android:paddingBottom="0sp" >
 
-               <TextView
-                   android:id="@+id/content_view_title"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:gravity="center"
-                   android:paddingBottom="0sp"
-                   android:text="Lorem ipsum"
-                   android:textColor="#000000"
-                   android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:paddingBottom="5sp"
+            android:paddingTop="5sp" >
 
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:background="#FFFFFF"
-                   android:orientation="horizontal"
-                   android:paddingBottom="5sp"
-                   android:paddingTop="5sp" >
+            <TextView
+                android:id="@+id/content_view_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="0sp"
+                android:text="Lorem ipsum"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-                   <ImageView
-                       android:id="@+id/product_image"
-                       android:layout_width="174dp"
-                       android:layout_height="241dp"
-                       android:layout_gravity="center"
-                       android:layout_margin="10dp"
-                       android:layout_weight="1"
-                       android:adjustViewBounds="true"
-                       android:paddingLeft="0dp"
-                       android:paddingRight="0dp"
-                       android:scaleType="fitXY"
-                       android:src="@drawable/loading_small" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:orientation="horizontal"
+                android:paddingBottom="5sp"
+                android:paddingTop="5sp" >
 
-                   <FrameLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="match_parent" >
-                   </FrameLayout>
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="174dp"
+                    android:layout_height="241dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/loading_small" />
 
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="match_parent"
-                       android:layout_margin="5dp"
-                       android:background="#FFFFFF"
-                       android:orientation="vertical"
-                       android:paddingBottom="5sp" >
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" >
+                </FrameLayout>
 
-                       <LinearLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:orientation="vertical" >
-                       </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical"
+                    android:paddingBottom="5sp" >
 
-                       <LinearLayout
-                           android:layout_width="102dp"
-                           android:layout_height="match_parent"
-                           android:layout_gravity="right"
-                           android:layout_weight="8"
-                           android:orientation="vertical" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+                    </LinearLayout>
 
-                          <TextView
-                   android:id="@+id/content_view_price"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:gravity="center"
-                   android:paddingBottom="0sp"
-                   android:text="Lorem ipsum"
-                   android:textColor="#000000"
-                   android:textSize="20sp" />
+                    <LinearLayout
+                        android:layout_width="102dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:layout_weight="8"
+                        android:orientation="vertical" >
 
-                           <ImageView
-                               android:id="@+id/logoView"
-                               android:layout_width="90dp"
-                               android:layout_height="102dp"
-                               android:layout_marginLeft="5dp"
-                               android:layout_marginTop="20dp"
-                               android:adjustViewBounds="true"
-                               android:paddingLeft="0dp"
-                               android:paddingRight="0dp"
-                               android:scaleType="fitXY"
-                               android:src="@drawable/loading_small" />
-                       </LinearLayout>
-                   </LinearLayout>
-               </LinearLayout>
-               
-                <TextView
-                   android:id="@+id/content_view_description"
-                   android:layout_width="fill_parent"
-                   android:layout_height="match_parent"
-                   android:layout_gravity="right"
-                   android:layout_margin="10dp"
-                   android:layout_weight="0.35"
-                   android:gravity="left"
-                   android:paddingBottom="0sp"
-                   android:text="@string/lorem"
-                   android:textColor="#000000"
-                   android:textSize="15sp" />
-               </LinearLayout>
-              
-    
+                        <TextView
+                            android:id="@+id/content_view_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingBottom="0sp"
+                            android:text="Lorem ipsum"
+                            android:textColor="#000000"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/logoView"
+                            android:layout_width="90dp"
+                            android:layout_height="102dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="20dp"
+                            android:adjustViewBounds="true"
+                            android:paddingLeft="0dp"
+                            android:paddingRight="0dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/loading_small" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/content_view_description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                android:layout_weight="0.35"
+                android:gravity="left"
+                android:paddingBottom="0sp"
+                android:text="@string/lorem"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+        </LinearLayout>
     </LinearLayout>
-          
+
 </RelativeLayout>
