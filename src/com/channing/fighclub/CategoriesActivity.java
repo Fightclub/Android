@@ -8,12 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -59,8 +58,11 @@ public class CategoriesActivity extends Activity {
     	LinearLayout productsContent = 
     			(LinearLayout) findViewById(R.id.categories_content);
     	
+
     	try {
         	JSONArray categoryProducts = new JSONArray(productsString);
+        	int random = (int) Math.random() * Integer.MAX_VALUE 
+        			- categoryProducts.length();;
         	for (int i=0; i < categoryProducts.length(); i++) {
         		String url = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "icon");
@@ -73,6 +75,25 @@ public class CategoriesActivity extends Activity {
         		String vendorName = JsonUtil.handleJsonObject
         				(vendor, "name");
         		
+        		LinearLayout contents = (LinearLayout) findViewById(R.id.categories_content);
+        		LayoutInflater inflater = (LayoutInflater)
+        				getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        		inflater.inflate(R.layout.categories_entry, contents, true);
+        		
+        		RelativeLayout entry = (RelativeLayout) contents.findViewById(R.id.categories_entry);
+        		
+        		entry.setId(random + i);
+        		
+        		ImageView productImage = (ImageView) entry.findViewById(R.id.category_product_image);
+        		UrlImageViewHelper.setUrlDrawable(productImage, url, 
+            			R.drawable.loading);
+        		
+        		TextView itemTitle = (TextView) entry.findViewById(R.id.content_name);
+        		itemTitle.setText(name);
+        		
+        		Log.v(TAG, name + itemId + vendor + vendorName);
+        		
+        		/*
         		TextView itemVendor = new TextView(this);
         		itemVendor.setText(vendorName);
         		productsContent.addView(itemVendor);
@@ -101,7 +122,7 @@ public class CategoriesActivity extends Activity {
             	productsContent.addView(iv);
             	UrlImageViewHelper.setUrlDrawable(iv, url, 
             			R.drawable.loading);
-            	
+            	*/
         	}
             
         } catch (JSONException e) {

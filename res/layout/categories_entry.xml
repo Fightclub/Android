@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/categories_entry"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#EAEAEA"
+    android:orientation="horizontal"
+    android:paddingBottom="5sp" >
+
+    <ImageView
+        android:id="@+id/category_product_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:paddingRight="10sp"
+        android:scaleType="fitXY"
+        android:src="@drawable/starbucks" />
+
+    <TextView
+        android:id="@+id/content_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/category_product_image"
+        android:singleLine="false"
+        android:paddingTop="10sp"
+        android:text="content name"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+</RelativeLayout>
