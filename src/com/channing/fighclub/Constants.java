@@ -16,10 +16,13 @@ public class Constants {
 	public static final String DESCRIPTION = "description";
 	public static final String BARCODE = "barcode";
 	public static final String PRODUCT = "product";
+	public static final String PRODUCT_NAME = "product_name";
 	public static final String ICON = "icon";
 	public static final String SENDER = "sender";
 	public static final String RECEIVER = "receiver";
 	public static final String MESSAGE = "message";
+	public static final String ERROR_CODE = "error_code";
+	public static final String ERROR_MSG = "error_msg";
 	
 	public static final String SHARED_PREF = "mypref";
 	public static final String DEFAULT_HOST = 

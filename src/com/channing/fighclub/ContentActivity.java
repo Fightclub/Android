@@ -20,7 +20,7 @@ public class ContentActivity extends Activity {
 	private static final String TAG = "ContentActivity";
 	private String price;
 	private String id;
-	private String name;
+	private String productName;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -31,10 +31,10 @@ public class ContentActivity extends Activity {
 		setContentView(R.layout.content_view);
 		setUpClickListensers();
 		Intent thisIntent = getIntent();
-		name = thisIntent.getStringExtra(Constants.NAME);
+		productName = thisIntent.getStringExtra(Constants.NAME);
 		id = thisIntent.getStringExtra(Constants.ID);
 		TextView titleView = (TextView) findViewById(R.id.content_view_title);
-		titleView.setText(name);
+		titleView.setText(productName);
 		loadContents(id);
 
 	}
@@ -85,7 +85,7 @@ public class ContentActivity extends Activity {
 			public void onClick(View v) {
         		Intent intent = new Intent(context,
                                            FriendFinderActivity.class);
-        		intent.putExtra(Constants.NAME, name);
+        		intent.putExtra(Constants.PRODUCT_NAME, productName);
         		intent.putExtra(Constants.ID, id);
         		intent.putExtra(Constants.PRICE, price);
         		

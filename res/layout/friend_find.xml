@@ -86,8 +86,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dip"
                     android:text="Send" />
-
-                <!-- Link to Login Screen -->
+                
+                <Button
+                    android:id="@+id/btnPost"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:text="Post to Facebook" />
 
             </LinearLayout>
         </ScrollView>

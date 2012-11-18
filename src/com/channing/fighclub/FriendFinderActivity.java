@@ -2,8 +2,8 @@ package com.channing.fighclub;
 
 import java.math.BigDecimal;
 
-import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,14 +17,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
 
-import com.faceapp.SampleFaceAppActivity;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import com.faceapp.BasicInfo;
+import com.facebook.android.DialogError;
+import com.facebook.android.Facebook;
+import com.facebook.android.FacebookError;
+import com.facebook.android.Facebook.DialogListener;
 import com.paypal.android.MEP.CheckoutButton;
 import com.paypal.android.MEP.PayPal;
 import com.paypal.android.MEP.PayPalPayment;
@@ -37,9 +37,11 @@ public class FriendFinderActivity extends Activity {
 	private EditText giftMessage;
 	private PayPal pp;
 	private String price;
+	private String productName;
 	private String id;
 	private Button sendBtn;
-	private CheckoutButton launchSimplePayment;
+	private Button postBtn;
+	//private CheckoutButton launchSimplePayment;
 	
 	
 	@Override
@@ -54,10 +56,72 @@ public class FriendFinderActivity extends Activity {
 		Intent thisIntent = getIntent();
 		id = thisIntent.getStringExtra(Constants.ID);
 		price = thisIntent.getStringExtra(Constants.PRICE);
+		productName = thisIntent.getStringExtra(Constants.PRODUCT_NAME);
 		setUpPayPal();
-
 		setUpClickListensers();
+		
+		postBtn = (Button) findViewById(R.id.btnPost);
+		postBtn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+		        String apikey = prefs.getString(Constants.API_KEY_KEY, null);
+		        if (apikey == null) {
+		        	Toast.makeText(getApplicationContext(), 
+							"You have to be logged in", 1000).show();
+		        	return;
+		        }
+		        if (emailOfFriend.getText().toString().length() <=0) {
+		        	Toast.makeText(getApplicationContext(), 
+							"Please enter your friend's email", 1000).show();
+		        	return;
+		        }
+		        
+		        postToFacebook();
 
+			}
+		});
+
+	}
+	
+	
+	private void postToFacebook() {
+		try{
+            Bundle parameters = new Bundle();
+            JSONObject attachment = new JSONObject();
+
+            try {
+                attachment.put("message", "Messages");
+                attachment.put("name", "Givair Gift: " 
+                		+ productName);
+                //attachment.put("href", link);
+            } catch (JSONException e) {
+            	Log.e(TAG, "JSONException: " + e);
+            }
+            parameters.putString("attachment", attachment.toString());
+            parameters.putString("message", giftMessage.getText().toString());
+            parameters.putString("target_id", emailOfFriend.getText().toString()); // target Id in which you need to Post 
+            parameters.putString("method", "stream.publish");
+            
+            String  response = BasicInfo.FacebookInstance.request(parameters);
+            Log.v("response", response);
+            String errorMsg = 
+            		JsonUtil.handleJsonObject(response, Constants.ERROR_MSG);
+
+            if (errorMsg != JsonUtil.JSON_OBJECT_FAIL) {
+            	Toast.makeText(getApplicationContext(),
+            			errorMsg , 1000).show();
+            } else {
+            	Toast.makeText(getApplicationContext(),
+        				"Posted on Facebook" , 1000).show();
+            }
+            
+        }
+        catch(Exception e){
+        	Log.v(TAG, "Failed to post to wall: " + e);
+        	e.printStackTrace();
+        	Toast.makeText(getApplicationContext(),
+    				"Failed to post on Facebook" , 1000).show();
+        }
 	}
 	
 	

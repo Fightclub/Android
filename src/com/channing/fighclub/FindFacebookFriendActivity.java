@@ -75,8 +75,14 @@ public class FindFacebookFriendActivity extends Activity {
 
     private void connect() {
     	try {
-    		Facebook mFacebook = new Facebook(BasicInfo.FACEBOOK_APP_ID);
-    		BasicInfo.FacebookInstance = mFacebook;
+    		Facebook mFacebook;
+    		if (BasicInfo.FacebookInstance == null) {
+    			mFacebook = new Facebook(BasicInfo.FACEBOOK_APP_ID);
+        		BasicInfo.FacebookInstance = mFacebook;
+    		} else {
+    			mFacebook = BasicInfo.FacebookInstance;
+    		}
+    		
 
     		if (!BasicInfo.RetryLogin && BasicInfo.FacebookLogin == true) {
     			mFacebook.setAccessToken(BasicInfo.FACEBOOK_ACCESS_TOKEN);
