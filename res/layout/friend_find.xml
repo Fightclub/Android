@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <!-- HEADER -->
+
+    <include
+        android:id="@+id/top_header"
+        android:layout_alignParentTop="true"
+        layout="@layout/layout_header" />
+
+    <!-- MAIN PART -->
+
+    <LinearLayout
+        android:id="@+id/sub_content_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/bottom_menu"
+        android:layout_below="@id/top_header"
+        android:background="#EAEAEA"
+        android:orientation="vertical"
+        android:paddingBottom="5sp" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3b3b3b" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="495dp"
+                android:orientation="vertical"
+                android:padding="10dip" >
+
+                <!-- View Title Label -->
+                <!-- First Name Label -->
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Find Your Friend" />
+                <!-- First Name TextField -->
+
+                <ImageView
+                    android:id="@+id/facebook_friends"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:padding="5dp"
+                    android:paddingRight="10sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/facebook_logo" />
+
+                <!-- email Label -->
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email of Friend" />
+
+                <EditText
+                    android:id="@+id/email_of_friend"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+
+                <!-- Message to friend Label -->
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add a Message!!!" />
+
+                <EditText
+                    android:id="@+id/gift_message"
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:singleLine="false"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"/>
+
+                <Button
+                    android:id="@+id/btnSend"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:text="Send" />
+
+                <!-- Link to Login Screen -->
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

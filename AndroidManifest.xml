@@ -45,8 +45,8 @@
             android:label="register activity 2 activity label" >
         </activity>
         <activity
-            android:name="com.channing.fighclub.BuyItemActivity"
-            android:label="buy item activity label" >
+            android:name="com.channing.fighclub.FriendFinderActivity"
+            android:label="friend finder activity label" >
         </activity>
         <activity
             android:name="com.channing.fighclub.LoginActivity2"
