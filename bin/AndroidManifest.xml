@@ -37,7 +37,11 @@
             android:label="categories activity label" >
         </activity>
         <activity
-            android:name="com.channing.fighclub.SampleFaceAppActivity2"
+            android:name="com.channing.fighclub.FindFacebookFriendActivity"
+            android:label="find facebook friend activity label" >
+        </activity>
+        <activity
+            android:name=".PeopleActivity"
             android:label="sample faceapp activity 2 label" >
         </activity>
         <activity

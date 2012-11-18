@@ -3,14 +3,14 @@ package com.faceapp;
 public class FeedItem {
 
 	private String name;
-	private String date;
-	private String message;
+	private String id;
+	private String bday;
 	private String picture;
 
-	public FeedItem(String inName, String inDate, String inMessage, String inPicture) {
+	public FeedItem(String inName, String inId, String inBday, String inPicture) {
 		name = inName;
-		date = inDate;
-		message = inMessage;
+		id = inId;
+		bday = inBday;
 		picture = inPicture;
 	}
 
@@ -20,17 +20,17 @@ public class FeedItem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDate() {
-		return date;
+	public String getId() {
+		return id;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getMessage() {
-		return message;
+	public String getBday() {
+		return bday;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public void setBday(String bday) {
+		this.bday = bday;
 	}
 	public String getPicture() {
 		return picture;

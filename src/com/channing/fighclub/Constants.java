@@ -37,4 +37,5 @@ public class Constants {
 	public static final String GIFT_URL = DEFAULT_HOST + "network/a/gift/new?";
 
 	public static final int PAYPAL_REQUEST_CODE = 1000;
+	public static final int FACEBOOK_FRIEND_REQUEST_CODE = 1001;
 }

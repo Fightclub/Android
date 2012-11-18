@@ -69,8 +69,8 @@ public class FeedListAdapter extends BaseAdapter {
 			FeedItem curItem = mItems.get(position);
 
 			String name = curItem.getName();
-			String date = curItem.getDate();
-			String message = curItem.getMessage();
+			String date = curItem.getId();
+			String message = curItem.getBday();
 			String pictureUrl = curItem.getPicture();
 
 			itemView.setText(0, name);

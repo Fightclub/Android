@@ -77,6 +77,22 @@ public class FriendFinderActivity extends Activity {
 				break;
 			}
 			break;
+			
+		case Constants.FACEBOOK_FRIEND_REQUEST_CODE:
+			switch (resultCode) {
+			case Activity.RESULT_OK:
+				String friendName = data.getStringExtra(Constants.NAME);
+				String friendEmail = data.getStringExtra(Constants.EMAIL);
+				emailOfFriend.setText(friendEmail);
+				Toast.makeText(getApplicationContext(), 
+						"You Selected: " + friendName, 1000).show();
+				break;
+			case Activity.RESULT_CANCELED:
+				Toast.makeText(getApplicationContext(), 
+						"Friend Selection Cancelled", 1000).show();
+				break;
+			}
+			break;
 
 		}
 
@@ -212,8 +228,12 @@ public class FriendFinderActivity extends Activity {
 		FriendFind.setOnClickListener(new OnClickListener() {
 			// todo - get a FB friend select to pop up
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(),
-						"Facebook button!", 1000).show();
+//				Toast.makeText(getApplicationContext(),
+//						"Facebook button!", 1000).show();
+				Intent facebookFriendIntent = 
+						new Intent(context, FindFacebookFriendActivity.class);
+				startActivityForResult(facebookFriendIntent,
+						Constants.FACEBOOK_FRIEND_REQUEST_CODE);
 			}
 
 		});

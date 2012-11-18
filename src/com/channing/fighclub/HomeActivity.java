@@ -66,7 +66,7 @@ public class HomeActivity extends Activity {
         		//		getString(R.string.people), 1000).show();
         		
         		Intent intent = new Intent(context, 
-        				SampleFaceAppActivity2.class);
+        				PeopleActivity.class);
         		startActivity(intent);
         		
         	}

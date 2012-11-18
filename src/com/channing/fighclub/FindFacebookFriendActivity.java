@@ -30,14 +30,12 @@ import com.facebook.android.Facebook.DialogListener;
 import com.facebook.android.FacebookError;
 import com.facebook.android.Util;
 
-public class SampleFaceAppActivity2 extends Activity {
+public class FindFacebookFriendActivity extends Activity {
 
 	public static final String TAG = "SampleFacebookAppActivity";
 	public String apikey = null;
 
 
-	TextView nameText;
-	ImageView connectBtn;
 	FeedListView feedList;
 	FeedListAdapter feedAdapter;
 	Context context;
@@ -49,68 +47,9 @@ public class SampleFaceAppActivity2 extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getApplicationContext();
-        setContentView(R.layout.people_view);
+        setContentView(R.layout.facebook_friends_view);
         setUpClickListensers();
-        
-
-        connectBtn = (ImageView) findViewById(R.id.connectBtn);
-        connectBtn.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		connect();
-        	}
-        });
-        
-        //Intent thisIntent = getIntent();
-        //String name = thisIntent.getStringExtra(HomeActivity.NAME);
-        //String id = thisIntent.getStringExtra(HomeActivity.ID);
-        
-        Log.v(TAG, "api_key: " + apikey);
-        
-        /////// For PEOPLE ACTIVITY ONLY
-        Button signupButton = (Button) findViewById(R.id.signupBtn);
-        signupButton.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		Log.v(TAG, "Signup clicked!");
-        		Intent intent = new Intent(context, 
-        				RegisterActivity2.class);
-        		startActivity(intent);
-        	}
-        });
-        
-        Button logoutButton = (Button) findViewById(R.id.logoutBtn);
-        logoutButton.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		logout();
-        	}
-        });
-        
-        
-        Button loginButton = (Button) findViewById(R.id.loginBtn);
-        loginButton.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-                
-        		Log.v(TAG, "Login clicked!");
-        		Intent intent = new Intent(context, 
-        				LoginActivity2.class);
-        		startActivity(intent);
-        		
-        	}
-        });
-        
-        Button debugButton = (Button) findViewById(R.id.debugBtn);
-        debugButton.setOnClickListener(new OnClickListener() {
-        	public void onClick(View v) {
-        		
-                //SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
-                //String firstname = prefs.getString(Constants.FIRST_NAME, null);
-        		SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
-                apikey = prefs.getString(Constants.API_KEY_KEY, null);
-                Toast.makeText(getApplicationContext(), 
-						"You're apikey is: " + apikey, 1000).show();
-        	}
-        });
-        
-
+        connect();
 
         feedList = (FeedListView) findViewById(R.id.feedList);
         feedAdapter = new FeedListAdapter(this);
@@ -119,25 +58,18 @@ public class SampleFaceAppActivity2 extends Activity {
 			public void onDataSelected(AdapterView parent, View v, int position, long id) {
 				FeedItem curItem = (FeedItem) feedAdapter.getItem(position);
 				String curName = curItem.getName();
+				String curId = curItem.getId();
 
-				Toast.makeText(getApplicationContext(), "Selected : " + curName, 1000).show();
+				Toast.makeText(getApplicationContext(), 
+						"Selected : " + curName, 1000).show();
+				Intent data = new Intent();
+				data.putExtra(Constants.NAME, curName);
+				data.putExtra(Constants.EMAIL, curId);
+				setResult(RESULT_OK, data);
+				finish();
 			}
 		});
 
-    }
-
-
-    public void logout() {
-    	SharedPreferences.Editor editor = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE).edit();
-    	editor.putString(Constants.API_KEY_KEY, null);
-    	editor.putString(Constants.FIRST_NAME, null);
-    	editor.putString(Constants.LAST_NAME, null);
-    	editor.putString(Constants.EMAIL, null);
-    	editor.putString(Constants.FB_EMAIL, null);
-    	editor.putString(Constants.BDAY, null);
-    	editor.commit();
-    	Toast.makeText(getApplicationContext(), 
-				getString(R.string.logged_out), 1000).show();
     }
 
 
@@ -165,8 +97,6 @@ public class SampleFaceAppActivity2 extends Activity {
 	private void showUserTimeline() {
 		Log.d(TAG, "showUserTimeline() called.");
 
-		connectBtn.setVisibility(View.GONE);
-
 		getUserTimeline();
 		/*
 		InputMethodManager imm = 
@@ -186,6 +116,7 @@ public class SampleFaceAppActivity2 extends Activity {
 			feedAdapter.clear();
 
 			JSONObject resultObj = Util.parseJson(responseStr);
+			//Log.v(TAG, responseStr);
 			JSONArray jArray = resultObj.getJSONArray("data");
 			//Log.v(TAG, "SIZE: " + jArray.length());
 			
@@ -339,7 +270,7 @@ public class SampleFaceAppActivity2 extends Activity {
         		//		getString(R.string.people), 1000).show();
         		
         		Intent intent = new Intent(context, 
-        				SampleFaceAppActivity2.class);
+        				FindFacebookFriendActivity.class);
         		startActivity(intent);
         		
         	}
