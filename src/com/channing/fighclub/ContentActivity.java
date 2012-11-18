@@ -2,9 +2,13 @@ package com.channing.fighclub;
 
 import java.math.BigDecimal;
 
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,7 +24,6 @@ import android.widget.Toast;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import com.paypal.android.MEP.CheckoutButton;
 import com.paypal.android.MEP.PayPal;
-import com.paypal.android.MEP.PayPalActivity;
 import com.paypal.android.MEP.PayPalPayment;
 
 public class ContentActivity extends Activity {
@@ -29,6 +32,8 @@ public class ContentActivity extends Activity {
 	private static final String TAG = "ContentActivity";
 	private PayPal pp;
 	private String price;
+	private String id;
+	private String name;
 	private CheckoutButton launchSimplePayment;
 
 	@Override
@@ -40,8 +45,8 @@ public class ContentActivity extends Activity {
 		setContentView(R.layout.content_view);
 		setUpClickListensers();
 		Intent thisIntent = getIntent();
-		String name = thisIntent.getStringExtra(Constants.NAME);
-		String id = thisIntent.getStringExtra(Constants.ID);
+		name = thisIntent.getStringExtra(Constants.NAME);
+		id = thisIntent.getStringExtra(Constants.ID);
 		TextView titleView = (TextView) findViewById(R.id.content_view_title);
 		titleView.setText(name);
 		loadContents(id);
@@ -64,6 +69,13 @@ public class ContentActivity extends Activity {
 
 		launchSimplePayment.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+		        String apikey = prefs.getString(Constants.API_KEY_KEY, null);
+		        if (apikey == null) {
+		        	Toast.makeText(getApplicationContext(), 
+							"You have to be logged in", 1000).show();
+		        	return;
+		        }
 
 				PayPalPayment payment = new PayPalPayment();
 
@@ -95,8 +107,9 @@ public class ContentActivity extends Activity {
 		case Constants.PAYPAL_REQUEST_CODE:
 			switch (resultCode) {
 			case Activity.RESULT_OK:
-				Toast.makeText(getApplicationContext(), 
-						"RESULT OK", 1000).show();
+//				Toast.makeText(getApplicationContext(), 
+//						"RESULT OK", 1000).show();
+				sendGift();
 				break;
 			case Activity.RESULT_CANCELED:
 				Toast.makeText(getApplicationContext(), 
@@ -109,6 +122,55 @@ public class ContentActivity extends Activity {
 
 	}
 	
+	private void sendGift() {
+		SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+        String apikey = prefs.getString(Constants.API_KEY_KEY, null);
+        if (apikey == null) {
+        	Toast.makeText(getApplicationContext(), 
+					"You have to be logged in", 1000).show();
+        	return;
+        }
+		
+		String newUrl = Constants.GIFT_URL
+				+ "apikey="+ Uri.encode(apikey)
+				+ "&product=" + Uri.encode(id)
+				+ "&email=" + Uri.encode("qwerty"); //TODO Specify Receiver!
+		String response = HttpUtil.request(newUrl);
+		Log.v(TAG, "new url: " + newUrl);
+		Log.v(TAG, "register response: " + response);
+		
+		String errorMessage = 
+				JsonUtil.handleJsonObject(response, "error");
+		// If error message returned from server
+		if (errorMessage != JsonUtil.JSON_OBJECT_FAIL) {
+			Toast.makeText(getApplicationContext(), 
+    				errorMessage, 1000).show();
+		} else {
+			//returns
+			/*
+			{"product": 
+				{"vendor": 
+					{"icon": "vendro icon url", 
+					"id": 1, 
+					"name": "vendor name"}, 
+				"name": "product name", 
+				"icon": "product icon url"}, 
+			"sender": {"last": "asdf", "id": 22, "first": "asdf"}, 
+			"redeemed": null, 
+			"created": "2012-11-18T08:30:54.371Z", 
+			"receiver": {"last": "last name", "id": 5, "first": "first name"}, 
+			"id": 6}
+			*/
+
+			String reInfo = 
+					JsonUtil.handleJsonObject(response, Constants.RECEIVER);
+			String first = 
+					JsonUtil.handleJsonObject(reInfo, Constants.FIRST_NAME);
+			Toast.makeText(getApplicationContext(), 
+    				"Gift sent to " + first, 1000).show();
+			finish();
+		}
+	}
 
 	public void onResume() {
 		super.onResume();

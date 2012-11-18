@@ -74,11 +74,9 @@ public class HomeActivity extends Activity {
         
         searchButton.setOnClickListener(new OnClickListener() {
         	public void onClick(View v) {
-        		//Toast.makeText(getApplicationContext(),
-        		//		getString(R.string.search), 1000).show();
-        		Intent intent = new Intent(context,
-                        BuyItemActivity.class);
-        		startActivity(intent);
+        		Toast.makeText(getApplicationContext(),
+        				getString(R.string.search), 1000).show();
+
         	}
         });
         

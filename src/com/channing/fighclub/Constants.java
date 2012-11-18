@@ -16,6 +16,7 @@ public class Constants {
 	public static final String PRODUCT = "product";
 	public static final String ICON = "icon";
 	public static final String SENDER = "sender";
+	public static final String RECEIVER = "receiver";
 	
 	public static final String SHARED_PREF = "mypref";
 	public static final String DEFAULT_HOST = 
@@ -29,8 +30,8 @@ public class Constants {
 	public static final String PRODUCT_URL = HOME_URL + "product?id=";
 	public static final String LOGIN_URL = DEFAULT_HOST + "network/a/user/login?";
 	public static final String REGISTER_URL = DEFAULT_HOST + "network/a/user/new?";
-	public static final String REDEEM_URL = DEFAULT_HOST + "/network/a/gift/redeem?";
-	public static final String GIFT_URL = DEFAULT_HOST + "network/gift/new?";
+	public static final String REDEEM_URL = DEFAULT_HOST + "network/a/gift/redeem?";
+	public static final String GIFT_URL = DEFAULT_HOST + "network/a/gift/new?";
 
 	public static final int PAYPAL_REQUEST_CODE = 1000;
 }
