@@ -66,9 +66,9 @@ public class CategoriesActivity extends Activity {
         	for (int i=0; i < categoryProducts.length(); i++) {
         		String url = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "icon");
-        		String name = JsonUtil.handleJsonObject
+        		final String name = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "name");
-        		String itemId = JsonUtil.handleJsonObject
+        		final String itemId = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "id");
         		String vendor = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "vendor");
@@ -91,7 +91,15 @@ public class CategoriesActivity extends Activity {
         		TextView itemTitle = (TextView) entry.findViewById(R.id.content_name);
         		itemTitle.setText(name);
         		
-        		Log.v(TAG, name + itemId + vendor + vendorName);
+        		entry.setOnClickListener(new OnClickListener() {
+                 	public void onClick(View v) {
+                 		Intent intent = new Intent(context,
+                                                   ContentActivity.class);
+                 		intent.putExtra(Constants.NAME, name);
+                 		intent.putExtra(Constants.ID, itemId);
+                 		startActivity(intent);
+                 	}
+        		});
         		
         		/*
         		TextView itemVendor = new TextView(this);
