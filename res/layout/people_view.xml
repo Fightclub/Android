@@ -235,6 +235,40 @@
                                 android:textSize="18dp"
                                 android:textStyle="bold" />
                         </LinearLayout>
+                        
+                        <LinearLayout
+                            android:id="@+id/featured_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#EAEAEA"
+                            android:orientation="horizontal"
+                            android:paddingBottom="5sp" >
+
+                            <ImageView
+                                android:id="@+id/featured_product_image"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignRight="@+id/please_show"
+                                android:layout_alignTop="@+id/suggested"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:adjustViewBounds="true"
+                                android:paddingRight="0dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/starbucks" />
+
+                            <Button
+                                android:id="@+id/giftsBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="35dp"
+                                android:gravity="right|center"
+                                android:text="My Gifts"
+                                android:textColor="#ff000000"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <com.faceapp.FeedListView

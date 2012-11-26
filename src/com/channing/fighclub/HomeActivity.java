@@ -82,9 +82,8 @@ public class HomeActivity extends Activity {
         
         cartButton.setOnClickListener(new OnClickListener() {
         	public void onClick(View v) {
-        		Intent intent = new Intent(context,
-                                           GiftCardActivity.class);
-        		startActivity(intent);
+        		Toast.makeText(getApplicationContext(),
+        				getString(R.string.cart), 1000).show();
         	}
         });
     }

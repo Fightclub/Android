@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <!-- HEADER -->
+
+    <include
+        android:id="@+id/top_header"
+        android:layout_alignParentTop="true"
+        layout="@layout/layout_header" />
+
+    <!-- FOOTER -->
+
+    <LinearLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <!-- menu bar -->
+
+        <include layout="@layout/layout_footer_menu" />
+    </LinearLayout>
+
+    <!-- MAIN PART -->
+
+    <LinearLayout
+        android:id="@+id/sub_content_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/bottom_menu"
+        android:layout_below="@id/top_header"
+        android:background="#EAEAEA"
+        android:orientation="vertical"
+        android:paddingBottom="5sp" >
+
+        <ScrollView
+            android:id="@+id/scrollcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/gifts_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#EAEAEA"
+                android:orientation="vertical"
+                android:paddingBottom="5sp" >
+
+                <TextView
+                    android:id="@+id/gifts_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/brands"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

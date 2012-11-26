@@ -32,7 +32,7 @@ import com.facebook.android.Util;
 
 public class PeopleActivity extends Activity {
 
-	public static final String TAG = "SampleFacebookAppActivity";
+	public static final String TAG = "PeopleActivity";
 	public String apikey = null;
 
 
@@ -63,8 +63,6 @@ public class PeopleActivity extends Activity {
         //Intent thisIntent = getIntent();
         //String name = thisIntent.getStringExtra(HomeActivity.NAME);
         //String id = thisIntent.getStringExtra(HomeActivity.ID);
-        
-        Log.v(TAG, "api_key: " + apikey);
         
         /////// For PEOPLE ACTIVITY ONLY
         Button signupButton = (Button) findViewById(R.id.signupBtn);
@@ -110,6 +108,25 @@ public class PeopleActivity extends Activity {
         	}
         });
         
+        Button giftsButton = (Button) findViewById(R.id.giftsBtn);
+        giftsButton.setOnClickListener(new OnClickListener() {
+        	public void onClick(View v) {
+        		
+        		SharedPreferences prefs = getSharedPreferences(Constants.SHARED_PREF, MODE_PRIVATE);
+                apikey = prefs.getString(Constants.API_KEY_KEY, null);
+                
+                if (apikey != null) {
+                	Intent intent = new Intent(context, 
+            				GiftsActivity.class);
+                	
+            		startActivity(intent);
+                } else {
+                	Toast.makeText(getApplicationContext(), 
+    						"You are not logged in", 1000).show();
+                }
+        		
+        	}
+        });
 
 
         feedList = (FeedListView) findViewById(R.id.feedList);
@@ -323,6 +340,7 @@ public class PeopleActivity extends Activity {
         Button peopleButton = (Button) findViewById(R.id.people_button);
         ImageView searchButton = (ImageView) findViewById(R.id.search_button);
         ImageView cartButton = (ImageView) findViewById(R.id.cart_button);
+        
         
         
         giftButton.setOnClickListener(new OnClickListener() {

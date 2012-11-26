@@ -39,7 +39,7 @@ public class GiftCardActivity extends Activity {
         String apikey = prefs.getString(Constants.API_KEY_KEY, null);
 		
 		//loadContents(id, apikey);
-        loadContents("3", apikey);
+        loadContents(id, apikey);
 		
 	}
 	
@@ -64,6 +64,7 @@ public class GiftCardActivity extends Activity {
 		if (errorMessage != JsonUtil.JSON_OBJECT_FAIL) {
 			Toast.makeText(getApplicationContext(), 
     				errorMessage, 1000).show();
+			finish();
 		} else {
 			try {
 				JSONObject jObject = new JSONObject(response);

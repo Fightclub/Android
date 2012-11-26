@@ -18,8 +18,11 @@ public class Constants {
 	public static final String PRODUCT = "product";
 	public static final String PRODUCT_NAME = "product_name";
 	public static final String ICON = "icon";
+	public static final String VENDOR = "vendor";
 	public static final String SENDER = "sender";
 	public static final String RECEIVER = "receiver";
+	public static final String RECEIVED = "received";
+	public static final String SENT = "sent";
 	public static final String MESSAGE = "message";
 	public static final String ERROR_CODE = "error_code";
 	public static final String ERROR_MSG = "error_msg";
@@ -38,7 +41,12 @@ public class Constants {
 	public static final String REGISTER_URL = DEFAULT_HOST + "network/a/user/new?";
 	public static final String REDEEM_URL = DEFAULT_HOST + "network/a/gift/redeem?";
 	public static final String GIFT_URL = DEFAULT_HOST + "network/a/gift/new?";
+	public static final String GIFTS_URL = DEFAULT_HOST + "network/a/user/gifts?";
 
 	public static final int PAYPAL_REQUEST_CODE = 1000;
 	public static final int FACEBOOK_FRIEND_REQUEST_CODE = 1001;
+	
+	public static final String PAYPAL_APP = "APP-3R448099WX274962U";
+	public static final String PAYPAL_SANDBOX = "APP-80W284485P519543T";
+	public static final String PAYPAL_EMAIL = "givairtransactions@gmail.com";
 }

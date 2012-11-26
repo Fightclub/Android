@@ -113,6 +113,7 @@ public class FriendFinderActivity extends Activity {
             } else {
             	Toast.makeText(getApplicationContext(),
         				"Posted on Facebook" , 1000).show();
+            	finish();
             }
             
         }
@@ -217,8 +218,11 @@ public class FriendFinderActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 
-		pp = PayPal.initWithAppID(this, "APP-80W284485P519543T",
-				PayPal.ENV_SANDBOX);
+//		pp = PayPal.initWithAppID(this, "APP-80W284485P519543T",
+//				PayPal.ENV_SANDBOX);
+		
+		pp = PayPal.initWithAppID(this, Constants.PAYPAL_APP,
+				PayPal.ENV_LIVE);
 		pp.setShippingEnabled(false);
 //		launchSimplePayment = pp.getCheckoutButton(this, PayPal.BUTTON_194x37,
 //				CheckoutButton.TEXT_PAY);
@@ -227,7 +231,7 @@ public class FriendFinderActivity extends Activity {
 	
 	
 	private void setUpPayPal() {
-		pp = PayPal.initWithAppID(this, "APP-80W284485P519543T",
+		pp = PayPal.initWithAppID(this, Constants.PAYPAL_APP,
 				PayPal.ENV_LIVE);
 		pp.setShippingEnabled(false);
 
@@ -255,14 +259,11 @@ public class FriendFinderActivity extends Activity {
 		        	return;
 		        }
 		        
-//				pp = PayPal.initWithAppID(context, "APP-80W284485P519543T",
-//						PayPal.ENV_LIVE);
-//				pp.setShippingEnabled(false);
 
 				PayPalPayment payment = new PayPalPayment();
 				payment.setSubtotal(new BigDecimal(price));
 				payment.setCurrencyType("USD");
-				payment.setRecipient("seller_1353212236_biz@gmail.com");
+				payment.setRecipient(Constants.PAYPAL_EMAIL);
 				payment.setPaymentType(PayPal.PAYMENT_TYPE_GOODS);
 				Intent checkoutIntent = PayPal.getInstance().checkout(payment,
 						context);

@@ -61,8 +61,6 @@ public class CategoriesActivity extends Activity {
 
     	try {
         	JSONArray categoryProducts = new JSONArray(productsString);
-        	int random = (int) Math.random() * Integer.MAX_VALUE 
-        			- categoryProducts.length();;
         	for (int i=0; i < categoryProducts.length(); i++) {
         		String url = JsonUtil.handleJsonObject
         				(categoryProducts.getString(i), "icon");
@@ -82,7 +80,7 @@ public class CategoriesActivity extends Activity {
         		
         		RelativeLayout entry = (RelativeLayout) contents.findViewById(R.id.categories_entry);
         		
-        		entry.setId(random + i);
+        		entry.setId(Util.getUniqueId(this));
         		
         		ImageView productImage = (ImageView) entry.findViewById(R.id.category_product_image);
         		UrlImageViewHelper.setUrlDrawable(productImage, url, 

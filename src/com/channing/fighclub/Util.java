@@ -1,7 +1,10 @@
 package com.channing.fighclub;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.View;
 
 public class Util{
     
@@ -24,5 +27,16 @@ public class Util{
 			x = Float.parseFloat(s.substring(0,i));
 		}
 		return dpToPx(x, context);
+	}
+	
+	public static int getUniqueId(Activity activity) {
+		int random = (int) (Math.random() * (double) Integer.MAX_VALUE);
+		View x = activity.findViewById(random);
+		while (x != null) {
+			random = (int) (Math.random() * (double) Integer.MAX_VALUE);
+			x = activity.findViewById(random);
+		}
+		
+		return random;
 	}
 }
