@@ -28,12 +28,12 @@ public class Constants {
 	public static final String ERROR_MSG = "error_msg";
 	
 	public static final String SHARED_PREF = "mypref";
-	public static final String DEFAULT_HOST = 
-			"https://fight-club-beta.herokuapp.com/";
-	public static final String DEFAULT_INSECURE_HOST = 
-			"http://fight-club-beta.herokuapp.com/";
+	public static final String DEFAULT_HOST = "https://fight-club-alpha.herokuapp.com/";
+			//"https://fight-club-beta.herokuapp.com/";
+	public static final String DEFAULT_INSECURE_HOST = "http://fight-club-alpha.herokuapp.com/";
+			//"http://fight-club-beta.herokuapp.com/";
 	public static final String HOME_URL = DEFAULT_INSECURE_HOST + "catalog/a/";
-	public static final String FEATURED_URL = HOME_URL + "product/category?id=2";
+	public static final String FEATURED_URL = HOME_URL + "product/category?id=1";
 	public static final String BRANDS_URL = HOME_URL + "vendor?id=";
 	public static final String CATEGORIES_URL = HOME_URL + "product/category?id=";
 	public static final String PRODUCT_URL = HOME_URL + "product?id=";
