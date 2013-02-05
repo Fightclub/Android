@@ -293,7 +293,8 @@ public class HomeActivity extends Activity {
                 	final View imageLayout = inflater.inflate(R.layout.icon_view, categoryHorzScroll, false);
         			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
         			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
-            		
+            		final View shadow = imageLayout.findViewById(R.id.shadow);
+        			
                 	setImageClickListener(imageLayout, 
                 			getString(R.string.categories), title, id);
                 	
@@ -308,6 +309,7 @@ public class HomeActivity extends Activity {
         				@Override
         				public void onLoadingComplete(Bitmap loadedImage) {
         					spinner.setVisibility(View.GONE);
+        					shadow.setVisibility(View.VISIBLE);
         				}
         			});
                 	
@@ -339,7 +341,7 @@ public class HomeActivity extends Activity {
                 	final View imageLayout = inflater.inflate(R.layout.icon_view, vendorHorzScroll, false);
         			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
         			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
-            		
+        			final View shadow = imageLayout.findViewById(R.id.shadow);
                 	
                 	setImageClickListener(imageLayout, 
                 			getString(R.string.brands), title, id);
@@ -355,6 +357,7 @@ public class HomeActivity extends Activity {
         				@Override
         				public void onLoadingComplete(Bitmap loadedImage) {
         					spinner.setVisibility(View.GONE);
+        					shadow.setVisibility(View.VISIBLE);
         				}
         			});
                 	
