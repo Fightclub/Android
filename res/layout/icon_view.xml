@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginLeft="3dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/horz_scroll_height"
+        android:layout_height="@dimen/horz_scroll_height"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:contentDescription="image icon" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>

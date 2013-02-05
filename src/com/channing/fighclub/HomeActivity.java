@@ -6,28 +6,34 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 public class HomeActivity extends Activity {
 	
 	private Context context;
 	private static final String TAG = "HomeActivity";
+	private LayoutInflater inflater;
 
 
 	
@@ -37,6 +43,7 @@ public class HomeActivity extends Activity {
         
         context = getApplicationContext();
         setContentView(R.layout.activity_main);
+        inflater = getLayoutInflater();
         setUpClickListensers();
 
         //loadContents();
@@ -96,7 +103,7 @@ public class HomeActivity extends Activity {
     }
     
     
-    private void setImageClickListener(ImageView iv, 
+    private void setImageClickListener(View iv, 
     		String type, String name, String id) {
     	final String title = name;
     	final String idx = id;
@@ -153,8 +160,6 @@ public class HomeActivity extends Activity {
         	super();
         	this.mContext = context;
             options = new DisplayImageOptions.Builder()
-    			.showStubImage(R.drawable.loading)
-    			.showImageForEmptyUri(R.drawable.loading)
     			.cacheInMemory()
     			.cacheOnDisc()
     			.build();
@@ -187,34 +192,50 @@ public class HomeActivity extends Activity {
                 	String id = 
                 			JsonUtil.handleJsonObject(
                 					featuredProducts.getString(i), "id");
-            		ImageView iv = new ImageView(mContext);
-                	iv.setImageResource(R.drawable.loading);
+            		
+                	
+                	final View imageLayout = inflater.inflate(R.layout.featured_view, featuredHorzScroll, false);
+        			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
+        			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
+        			
+        			
+        			//ImageView iv = new ImageView(mContext);
+        			
                 	int minDimen = Util.dpToPx(
                 			getString(R.dimen.featured_horz_height),
                 			context);
-                	iv.setMinimumWidth(minDimen);
-                	iv.setMinimumHeight(minDimen);
+                	//iv.setMinimumWidth(minDimen);
+                	//iv.setMinimumHeight(minDimen);
                 	
                 	DisplayMetrics dm = new DisplayMetrics();
                 	getWindowManager().getDefaultDisplay().getMetrics(dm);
-                	int width = dm.widthPixels;
+                	int m = Util.dpToPx(12, context);
+                	int width = dm.widthPixels - m;
                 	
-                	LinearLayout.LayoutParams lp = 
-                			new LinearLayout.LayoutParams(
+                	FrameLayout.LayoutParams lp = 
+                			new FrameLayout.LayoutParams(
                 					width, 
-                					LinearLayout.LayoutParams.MATCH_PARENT); //w,h
-                	//int m = Util.dpToPx(5, context);
+                					FrameLayout.LayoutParams.MATCH_PARENT); //w,h
+                	
                 	lp.setMargins(0, 0, 0, 0);//left,top,right,bottom
                 	iv.setLayoutParams(lp);
                 	iv.setScaleType(ImageView.ScaleType.FIT_XY);
-                	//iv.setBackgroundResource(R.layout.background);
                 	
-                	setImageClickListener(iv, getString(R.string.featured_products), title, id);
-                	featuredHorzScroll.addView(iv);
-                	//UrlImageViewHelper.setUrlDrawable(iv, url, 
-                	//		R.drawable.loading);
-                	//iv.setImageResource(R.drawable.starbucks);
-                	imageLoader.displayImage(url ,iv , options);
+                	setImageClickListener(imageLayout, getString(R.string.featured_products), title, id);
+
+                	featuredHorzScroll.addView(imageLayout);
+                	
+                	imageLoader.displayImage(url ,iv , options, new SimpleImageLoadingListener() {
+        				@Override
+        				public void onLoadingStarted() {
+        					spinner.setVisibility(View.VISIBLE);
+        				}
+
+        				@Override
+        				public void onLoadingComplete(Bitmap loadedImage) {
+        					spinner.setVisibility(View.GONE);
+        				}
+        			});
                 	
             	}
                 
@@ -234,8 +255,6 @@ public class HomeActivity extends Activity {
         	this.mContext = context;
         	imageLoader.init(ImageLoaderConfiguration.createDefault(context));
             options = new DisplayImageOptions.Builder()
-    			.showStubImage(R.drawable.loading)
-    			.showImageForEmptyUri(R.drawable.loading)
     			.displayer(new RoundedBitmapDisplayer(20))
     			.cacheInMemory()
     			.cacheOnDisc()
@@ -264,30 +283,33 @@ public class HomeActivity extends Activity {
             		// Starting for i = 1 so we won't show featured item as a category
             		String url = JsonUtil.handleJsonObject
             				(categoryProducts.getString(i), "icon");
-            		ImageView iv = new ImageView(context);
-                	iv.setImageResource(R.drawable.loading);
-                	int minDimen = Util.dpToPx(
-                			getString(R.dimen.horz_scroll_height),
-                			context);
-                	iv.setMinimumWidth(minDimen);
-                	iv.setMinimumHeight(minDimen);
-                	
-                	LinearLayout.LayoutParams lp = 
-                			new LinearLayout.LayoutParams(
-                					minDimen, 
-                					LinearLayout.LayoutParams.MATCH_PARENT);//w,h
-                	int m = Util.dpToPx(5, context);
-                	lp.setMargins(m, m, m, m);//left,top,right,bottom
-                	iv.setLayoutParams(lp);
-                	//iv.setBackgroundResource(R.layout.background);
+            		
+            	
                 	String title = JsonUtil.handleJsonObject(
                 			categoryProducts.getString(i), "name");
                 	String id = JsonUtil.handleJsonObject(
                 			categoryProducts.getString(i), "id");
-                	setImageClickListener(iv, 
+                	
+                	final View imageLayout = inflater.inflate(R.layout.icon_view, categoryHorzScroll, false);
+        			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
+        			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
+            		
+                	setImageClickListener(imageLayout, 
                 			getString(R.string.categories), title, id);
-                	categoryHorzScroll.addView(iv);
-                	imageLoader.displayImage(url ,iv , options);
+                	
+                	categoryHorzScroll.addView(imageLayout);
+                	
+                	imageLoader.displayImage(url ,iv , options, new SimpleImageLoadingListener() {
+        				@Override
+        				public void onLoadingStarted() {
+        					spinner.setVisibility(View.VISIBLE);
+        				}
+
+        				@Override
+        				public void onLoadingComplete(Bitmap loadedImage) {
+        					spinner.setVisibility(View.GONE);
+        				}
+        			});
                 	
             	}
                 
@@ -308,30 +330,33 @@ public class HomeActivity extends Activity {
             	for (int i=0; i < vendorProducts.length(); i++) {
             		String url = JsonUtil.handleJsonObject
             				(vendorProducts.getString(i), "icon");
-            		ImageView iv = new ImageView(context);
-                	iv.setImageResource(R.drawable.loading);
-                	int minDimen = Util.dpToPx(
-                			getString(R.dimen.horz_scroll_height),
-                			context);
-                	iv.setMinimumWidth(minDimen);
-                	iv.setMinimumHeight(minDimen);
-                	
-                	LinearLayout.LayoutParams lp = 
-                			new LinearLayout.LayoutParams(
-                					minDimen, 
-                					LinearLayout.LayoutParams.MATCH_PARENT);//w,h
-                	int m = Util.dpToPx(5, context);
-                	lp.setMargins(m, m, m, m);//left,top,right,bottom
-                	iv.setLayoutParams(lp);
+            		
                 	String title = JsonUtil.handleJsonObject(
                 			vendorProducts.getString(i), "name");
                 	String id = JsonUtil.handleJsonObject(
                 			vendorProducts.getString(i), "id");
-                	setImageClickListener(iv, 
+                	
+                	final View imageLayout = inflater.inflate(R.layout.icon_view, vendorHorzScroll, false);
+        			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
+        			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
+            		
+                	
+                	setImageClickListener(imageLayout, 
                 			getString(R.string.brands), title, id);
-                	//iv.setBackgroundResource(R.layout.background);
-                	vendorHorzScroll.addView(iv);
-                	imageLoader.displayImage(url ,iv , options);
+                	
+                	vendorHorzScroll.addView(imageLayout);
+                	
+                	imageLoader.displayImage(url ,iv , options, new SimpleImageLoadingListener() {
+        				@Override
+        				public void onLoadingStarted() {
+        					spinner.setVisibility(View.VISIBLE);
+        				}
+
+        				@Override
+        				public void onLoadingComplete(Bitmap loadedImage) {
+        					spinner.setVisibility(View.GONE);
+        				}
+        			});
                 	
             	}
                 

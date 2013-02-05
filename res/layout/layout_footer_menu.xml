@@ -1,29 +1,36 @@
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="wrap_content"
-  android:id="@+id/imglinear"
-  android:background="#ffffffff"
-  android:layout_alignParentBottom="true"
-  >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/imglinear"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#ffffffff" >
+
     <Button
         android:id="@+id/people_button"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/footer_height"
-        android:background="@drawable/bargradient"
-        android:textColor="#ff000000"
         android:layout_weight="1"
-        android:text="@string/people"/>
-    <View android:id="@+id/separator" 
-        android:background="#FF808080" 
-        android:layout_height = "match_parent"
-        android:layout_width="1dp"/>
+        android:background="@drawable/bargradient_footer"
+        android:text="@string/people"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#FF808080" />
+
     <Button
         android:id="@+id/gifts_button"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/footer_height"
-        android:background="@drawable/bargradient"
-        android:textColor="#ff000000"
         android:layout_weight="1"
-        android:text="@string/gifts"/>
+        android:background="@drawable/bargradient_footer"
+        android:text="@string/gifts"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
 </LinearLayout>
