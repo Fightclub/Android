@@ -16,7 +16,7 @@
     <include
         android:id="@+id/bottom_menu"
         android:layout_alignParentBottom="true"
-        layout="@layout/layout_footer_menu"/>
+        layout="@layout/layout_footer_menu" />
 
     <!-- MAIN PART -->
 
@@ -27,7 +27,7 @@
         android:layout_above="@id/bottom_menu"
         android:layout_below="@id/top_header"
         android:background="@color/light_grey_background"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <ScrollView
             android:id="@+id/scrollcontent"
@@ -50,6 +50,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:gravity="left"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     android:text="@string/categories"
                     android:textColor="@color/gray_text"
                     android:textSize="20sp"
@@ -69,12 +73,15 @@
                     android:textColor="@color/gray_text"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:typeface="sans" />
+                    android:typeface="sans"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2" />
 
                 <include
                     android:id="@+id/vendor"
                     layout="@layout/horz_scroll" />
-
             </LinearLayout>
         </ScrollView>
 
