@@ -11,11 +11,11 @@
     <color name="givair_light">#94CEEE</color>
     <color name="header_top">#59AAE4</color>
     <color name="header_bottom">#59AAE4</color>
-    <color name="footer_top">#363636</color>
-    <color name="footer_bottom">#000000</color>
+    <color name="footer_top">#99363636</color>
+    <color name="footer_bottom">#ff000000</color>
     <color name="light_grey_background">#E6E6E6</color>
     <color name="gray_text">#4B4B4B</color>
-    <color name="drop_start">#ff000000</color>
+    <color name="drop_start">#aa000000</color>
     <color name="drop_end">#33000000</color>
 
 </resources>

@@ -13,29 +13,21 @@
 
     <!-- FOOTER -->
 
-    <LinearLayout
+    <include
         android:id="@+id/bottom_menu"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical" >
-
-        <!-- menu bar -->
-
-        <include layout="@layout/layout_footer_menu" />
-    </LinearLayout>
+        layout="@layout/layout_footer_menu"/>
 
     <!-- MAIN PART -->
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/sub_content_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@id/bottom_menu"
         android:layout_below="@id/top_header"
         android:background="@color/light_grey_background"
-        android:orientation="vertical"
-        android:paddingBottom="5sp" >
+        android:orientation="vertical">
 
         <ScrollView
             android:id="@+id/scrollcontent"
@@ -49,7 +41,6 @@
                 android:orientation="vertical"
                 android:paddingBottom="5sp" >
 
-
                 <include
                     android:id="@+id/featured"
                     layout="@layout/featured_horz_scroll" />
@@ -60,10 +51,10 @@
                     android:layout_marginLeft="12dp"
                     android:gravity="left"
                     android:text="@string/categories"
-                    android:typeface="sans"
+                    android:textColor="@color/gray_text"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/gray_text" 
-                    android:textSize="20sp" />
+                    android:typeface="sans" />
 
                 <include
                     android:id="@+id/category"
@@ -75,16 +66,31 @@
                     android:layout_marginLeft="12dp"
                     android:gravity="left"
                     android:text="@string/vendors"
-                    android:typeface="sans"
+                    android:textColor="@color/gray_text"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/gray_text" 
-                    android:textSize="20sp" />
+                    android:typeface="sans" />
 
                 <include
                     android:id="@+id/vendor"
                     layout="@layout/horz_scroll" />
+
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
+
+        <View
+            android:id="@+id/top_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_gravity="top"
+            android:background="@drawable/top_shadow" />
+
+        <View
+            android:id="@+id/bottom_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bottom_shadow" />
+    </FrameLayout>
 
 </RelativeLayout>
