@@ -4,7 +4,10 @@
         <shape android:shape="rectangle" >
             <corners android:radius="10dp" />
             <gradient
-                android:angle="315"
+                android:gradientRadius="141"
+                android:type="radial"
+                android:centerX="0.7"
+                android:centerY="0.7"
                 android:endColor="@color/drop_end"
                 android:startColor="@color/drop_start" >
             </gradient>

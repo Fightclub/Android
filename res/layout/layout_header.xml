@@ -3,7 +3,7 @@
   android:id="@+id/headerbar"
   android:orientation="horizontal"
   android:layout_width="fill_parent"
-  android:background="@drawable/bargradient_header"
+  android:background="@drawable/header_background"
   android:layout_height="@dimen/header_height"
   android:layout_below="@+id/content"
   android:layout_alignParentTop="true"
