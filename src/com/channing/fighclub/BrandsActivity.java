@@ -74,7 +74,7 @@ public class BrandsActivity extends Activity {
         		ImageView iv = new ImageView(this);
             	iv.setImageResource(R.drawable.loading);
             	int minDimen = Util.dpToPx(
-            			getString(R.dimen.horz_scroll_height),
+            			getString(R.dimen.horz_scroll_width),
             			context);
             	iv.setMinimumWidth(minDimen);
             	iv.setMinimumHeight(minDimen);
@@ -105,7 +105,7 @@ public class BrandsActivity extends Activity {
     	Button giftButton = (Button) findViewById(R.id.gifts_button);
         Button peopleButton = (Button) findViewById(R.id.people_button);
         ImageView searchButton = (ImageView) findViewById(R.id.search_button);
-        ImageView cartButton = (ImageView) findViewById(R.id.cart_button);
+        ImageView cartButton = (ImageView) findViewById(R.id.givair_button);
         
         
         giftButton.setOnClickListener(new OnClickListener() {

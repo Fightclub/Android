@@ -1,38 +1,43 @@
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/headerbar"
-  android:orientation="horizontal"
-  android:layout_width="fill_parent"
-  android:background="@drawable/bargradient_header"
-  android:layout_height="@dimen/header_height"
-  android:layout_below="@+id/content"
-  android:layout_alignParentTop="true"
-  >
-  <ImageView
-      android:id = "@+id/search_button"
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:src="@drawable/ic_action_search"
-      android:gravity="left"
-      android:layout_weight="1"/>
-  <TextView 
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:textColor="#ffffff"
-      android:textSize="30sp"
-      android:gravity="center"
-      android:typeface="sans"
-      android:textStyle="bold"
-      android:text="@string/app_name"
-      android:layout_weight="3"/>
-      
-  <ImageView
-      android:id = "@+id/cart_button"
-      android:layout_width="@dimen/header_height"
-      android:layout_height="match_parent"
-      android:gravity="right"
-      android:scaleType="fitEnd"
-      android:paddingRight = "5dp"
-      android:src="@drawable/shopping_cart"
-      android:layout_weight="1"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/header_height"
+    android:layout_alignParentTop="true"
+    android:layout_below="@+id/content"
+    android:background="@drawable/bargradient_header"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/givair_button"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:paddingLeft="5dp"
+        android:src="@drawable/gift_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:shadowColor="@color/text_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="3"
+        android:text="@string/app_name"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <ImageView
+        android:id="@+id/search_button"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:paddingRight="5dp"
+        android:src="@drawable/ic_action_search" />
+
 </LinearLayout>

@@ -25,6 +25,7 @@ public final class R {
         public static final int light_blue=0x7f040006;
         public static final int light_grey_background=0x7f04000d;
         public static final int lighter_blue=0x7f040005;
+        public static final int text_shadow=0x7f040011;
         public static final int titlebackgroundcolor=0x7f040000;
         public static final int titletextcolor=0x7f040001;
         public static final int white=0x7f040002;
@@ -33,8 +34,9 @@ public final class R {
         public static final int featured_horz_height=0x7f050002;
         public static final int footer_height=0x7f050001;
         public static final int header_height=0x7f050000;
-        public static final int horz_scroll_height=0x7f050003;
-        public static final int icon_height=0x7f050004;
+        public static final int horz_scroll_height=0x7f050004;
+        public static final int horz_scroll_width=0x7f050003;
+        public static final int icon_height=0x7f050005;
     }
     public static final class drawable {
         public static final int applebees=0x7f020000;
@@ -52,24 +54,25 @@ public final class R {
         public static final int facebook_login=0x7f02000c;
         public static final int facebook_logo=0x7f02000d;
         public static final int facebook_profile=0x7f02000e;
-        public static final int givair_logo=0x7f02000f;
-        public static final int ic_action_search=0x7f020010;
-        public static final int ic_launcher=0x7f020011;
-        public static final int icon=0x7f020012;
-        public static final int innout=0x7f020013;
-        public static final int jamba=0x7f020014;
-        public static final int jambamenu=0x7f020015;
-        public static final int lambo=0x7f020016;
-        public static final int loading=0x7f020017;
-        public static final int mcdonalds=0x7f020018;
-        public static final int no_thanks=0x7f020019;
-        public static final int olivegarden=0x7f02001a;
-        public static final int outback=0x7f02001b;
-        public static final int peets=0x7f02001c;
-        public static final int pizzahut=0x7f02001d;
-        public static final int shopping_cart=0x7f02001e;
-        public static final int starbucks=0x7f02001f;
-        public static final int top_shadow=0x7f020020;
+        public static final int gift_icon=0x7f02000f;
+        public static final int givair_logo=0x7f020010;
+        public static final int ic_action_search=0x7f020011;
+        public static final int ic_launcher=0x7f020012;
+        public static final int icon=0x7f020013;
+        public static final int innout=0x7f020014;
+        public static final int jamba=0x7f020015;
+        public static final int jambamenu=0x7f020016;
+        public static final int lambo=0x7f020017;
+        public static final int loading=0x7f020018;
+        public static final int mcdonalds=0x7f020019;
+        public static final int no_thanks=0x7f02001a;
+        public static final int olivegarden=0x7f02001b;
+        public static final int outback=0x7f02001c;
+        public static final int peets=0x7f02001d;
+        public static final int pizzahut=0x7f02001e;
+        public static final int shopping_cart=0x7f02001f;
+        public static final int starbucks=0x7f020020;
+        public static final int top_shadow=0x7f020021;
     }
     public static final class id {
         public static final int Send_to_Friend=0x7f090013;
@@ -88,7 +91,6 @@ public final class R {
         public static final int btnSend=0x7f090020;
         public static final int buttonLayout=0x7f090018;
         public static final int card_outline=0x7f090023;
-        public static final int cart_button=0x7f09003d;
         public static final int categories_content=0x7f09000e;
         public static final int categories_entry=0x7f09000b;
         public static final int categories_title=0x7f09000f;
@@ -121,6 +123,7 @@ public final class R {
         public static final int gifts_content=0x7f09002f;
         public static final int gifts_entry=0x7f09002b;
         public static final int gifts_title=0x7f090030;
+        public static final int givair_button=0x7f09003c;
         public static final int headerbar=0x7f09003a;
         public static final int horizontalcontent=0x7f090019;
         public static final int horz_scroll_linear=0x7f09001a;
@@ -150,7 +153,7 @@ public final class R {
         public static final int registerPassword=0x7f090053;
         public static final int register_error=0x7f090054;
         public static final int scrollcontent=0x7f090003;
-        public static final int search_button=0x7f09003c;
+        public static final int search_button=0x7f09003d;
         public static final int sender_name=0x7f09002e;
         public static final int separator=0x7f090038;
         public static final int shadow=0x7f090031;

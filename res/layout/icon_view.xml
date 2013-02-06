@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/horz_scroll_height"
+    android:layout_width="@dimen/horz_scroll_width"
     android:layout_height="match_parent"
     android:layout_marginLeft="3dp"
     android:layout_marginRight="3dp"
     android:orientation="vertical" >
 
     <FrameLayout
-        android:layout_width="@dimen/horz_scroll_height"
-        android:layout_height="@dimen/horz_scroll_height"
+        android:layout_width="@dimen/horz_scroll_width"
+        android:layout_height="@dimen/horz_scroll_width"
         android:layout_gravity="top"
         android:gravity="top" >
 

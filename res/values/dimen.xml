@@ -3,6 +3,7 @@
     <dimen name="header_height" >48dp</dimen>
     <dimen name="footer_height" >48dp</dimen>
     <dimen name="featured_horz_height" >140dp</dimen>
-    <dimen name="horz_scroll_height" >100dp</dimen>
+    <dimen name="horz_scroll_width" >100dp</dimen>
+    <dimen name="horz_scroll_height">120dp</dimen>
     <dimen name="icon_height" >98dp</dimen>
 </resources>

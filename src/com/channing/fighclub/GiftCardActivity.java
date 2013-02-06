@@ -118,7 +118,7 @@ public class GiftCardActivity extends Activity {
 		Button giftButton = (Button) findViewById(R.id.gifts_button);
 		Button peopleButton = (Button) findViewById(R.id.people_button);
 		ImageView searchButton = (ImageView) findViewById(R.id.search_button);
-		ImageView cartButton = (ImageView) findViewById(R.id.cart_button);
+		ImageView cartButton = (ImageView) findViewById(R.id.givair_button);
 
 		giftButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {

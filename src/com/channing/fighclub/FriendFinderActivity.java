@@ -286,7 +286,7 @@ public class FriendFinderActivity extends Activity {
 
 	private void setUpClickListensers() {
 		ImageView searchButton = (ImageView) findViewById(R.id.search_button);
-		ImageView cartButton = (ImageView) findViewById(R.id.cart_button);
+		ImageView cartButton = (ImageView) findViewById(R.id.givair_button);
 		ImageView FriendFind = (ImageView) findViewById(R.id.facebook_friends);
 
 		
