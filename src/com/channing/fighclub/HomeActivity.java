@@ -21,6 +21,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -285,15 +286,16 @@ public class HomeActivity extends Activity {
             				(categoryProducts.getString(i), "icon");
             		
             	
-                	String title = JsonUtil.handleJsonObject(
+                	final String title = JsonUtil.handleJsonObject(
                 			categoryProducts.getString(i), "name");
                 	String id = JsonUtil.handleJsonObject(
                 			categoryProducts.getString(i), "id");
                 	
-                	final View imageLayout = inflater.inflate(R.layout.icon_view, categoryHorzScroll, false);
+                	final LinearLayout imageLayout = (LinearLayout) inflater.inflate(R.layout.icon_view, categoryHorzScroll, false);
         			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
         			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
             		final View shadow = imageLayout.findViewById(R.id.shadow);
+            		final TextView nameView = (TextView) imageLayout.findViewById(R.id.name_text);
         			
                 	setImageClickListener(imageLayout, 
                 			getString(R.string.categories), title, id);
@@ -310,6 +312,7 @@ public class HomeActivity extends Activity {
         				public void onLoadingComplete(Bitmap loadedImage) {
         					spinner.setVisibility(View.GONE);
         					shadow.setVisibility(View.VISIBLE);
+        					nameView.setText(title);
         				}
         			});
                 	
@@ -333,16 +336,17 @@ public class HomeActivity extends Activity {
             		String url = JsonUtil.handleJsonObject
             				(vendorProducts.getString(i), "icon");
             		
-                	String title = JsonUtil.handleJsonObject(
+                	final String title = JsonUtil.handleJsonObject(
                 			vendorProducts.getString(i), "name");
                 	String id = JsonUtil.handleJsonObject(
                 			vendorProducts.getString(i), "id");
                 	
-                	final View imageLayout = inflater.inflate(R.layout.icon_view, vendorHorzScroll, false);
+                	final LinearLayout imageLayout = (LinearLayout) inflater.inflate(R.layout.icon_view, categoryHorzScroll, false);
         			final ImageView iv = (ImageView) imageLayout.findViewById(R.id.image);
         			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
         			final View shadow = imageLayout.findViewById(R.id.shadow);
-                	
+            		final TextView nameView = (TextView) imageLayout.findViewById(R.id.name_text);
+
                 	setImageClickListener(imageLayout, 
                 			getString(R.string.brands), title, id);
                 	
@@ -358,6 +362,7 @@ public class HomeActivity extends Activity {
         				public void onLoadingComplete(Bitmap loadedImage) {
         					spinner.setVisibility(View.GONE);
         					shadow.setVisibility(View.VISIBLE);
+        					nameView.setText(title);
         				}
         			});
                 	

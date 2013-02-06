@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/horizontalcontent"
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/horz_scroll_height"
+    android:layout_height="130dp"
     android:scrollbars="none">
     <LinearLayout
         android:id = "@+id/horz_scroll_linear"
