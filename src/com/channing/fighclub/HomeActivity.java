@@ -178,11 +178,12 @@ public class HomeActivity extends Activity {
         protected void onPostExecute(String featuredOutput) {
         	ScrollView sc = (ScrollView) findViewById(R.id.scrollcontent);
         	sc.setVisibility(View.VISIBLE);
+        	ProgressBar mainSpinner = (ProgressBar) findViewById(R.id.main_loading);
+			mainSpinner.setVisibility(View.GONE);
+        	
         	String featuredString = 
             		JsonUtil.handleJsonObject(featuredOutput, "products");
-			ProgressBar mainSpinner = (ProgressBar) findViewById(R.id.main_loading);
-			mainSpinner.setVisibility(View.GONE);
-
+			
             HorizontalScrollView featuredLayout =
         			(HorizontalScrollView) findViewById(R.id.featured);
         	LinearLayout featuredHorzScroll = (LinearLayout) 

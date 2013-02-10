@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -128,6 +129,10 @@ public class CategoriesActivity extends Activity {
         }
 
         protected void onPostExecute(String aOutput) {
+        	ScrollView sc = (ScrollView) findViewById(R.id.scrollcontent);
+        	sc.setVisibility(View.VISIBLE);
+        	ProgressBar mainSpinner = (ProgressBar) findViewById(R.id.main_loading);
+			mainSpinner.setVisibility(View.GONE);
         	String productsString = 
             		JsonUtil.handleJsonObject(aOutput, "products");
             
