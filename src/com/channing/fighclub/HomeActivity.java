@@ -21,6 +21,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -175,8 +176,12 @@ public class HomeActivity extends Activity {
         }
 
         protected void onPostExecute(String featuredOutput) {
+        	ScrollView sc = (ScrollView) findViewById(R.id.scrollcontent);
+        	sc.setVisibility(View.VISIBLE);
         	String featuredString = 
             		JsonUtil.handleJsonObject(featuredOutput, "products");
+			ProgressBar mainSpinner = (ProgressBar) findViewById(R.id.main_loading);
+			mainSpinner.setVisibility(View.GONE);
 
             HorizontalScrollView featuredLayout =
         			(HorizontalScrollView) findViewById(R.id.featured);

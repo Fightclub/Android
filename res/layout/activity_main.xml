@@ -32,7 +32,8 @@
         <ScrollView
             android:id="@+id/scrollcontent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -69,15 +70,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:gravity="left"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
                     android:text="@string/vendors"
                     android:textColor="@color/gray_text"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:typeface="sans"
-                    android:shadowColor="@color/white"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2" />
+                    android:typeface="sans" />
 
                 <include
                     android:id="@+id/vendor"
@@ -98,6 +99,13 @@
             android:layout_height="4dp"
             android:layout_gravity="bottom"
             android:background="@drawable/bottom_shadow" />
+
+        <ProgressBar
+            android:id="@+id/main_loading"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:visibility="visible" />
     </FrameLayout>
 
 </RelativeLayout>
