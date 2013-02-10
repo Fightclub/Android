@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/categories_entry"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/horz_scroll_width"
+    android:layout_height="wrap_content"
     android:background="#EAEAEA"
     android:orientation="horizontal"
     android:layout_marginTop="4dp">
@@ -11,6 +11,7 @@
         android:layout_width="@dimen/horz_scroll_width"
         android:layout_height="@dimen/horz_scroll_width"
         android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="top"
@@ -48,12 +49,22 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="2dp"
+        android:layout_marginLeft="4dp"
         android:layout_toRightOf="@id/category_product_image"
         android:paddingTop="10sp"
         android:singleLine="false"
-        android:text="content name"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+        android:shadowColor="@color/white"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="3"
+        android:textColor="@color/gray_text"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FF808080"
+        android:layout_marginBottom="2dp"/>
 
 </RelativeLayout>
